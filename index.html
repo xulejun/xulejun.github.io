@@ -63,6 +63,335 @@
 
     
     
+    <article id="post-Odoo开发——完整请假系统功能需求及源码" class="article article-type-post" itemscope
+  itemprop="blogPost" data-scroll-reveal>
+
+  <div class="article-inner">
+    
+    <header class="article-header">
+       
+<h2 itemprop="name">
+  <a class="article-title" href="/2019/12/22/Odoo%E5%BC%80%E5%8F%91%E2%80%94%E2%80%94%E5%AE%8C%E6%95%B4%E8%AF%B7%E5%81%87%E7%B3%BB%E7%BB%9F%E5%8A%9F%E8%83%BD%E9%9C%80%E6%B1%82%E5%8F%8A%E6%BA%90%E7%A0%81/"
+    >Odoo开发——完整请假系统功能需求及源码</a
+  >
+</h2>
+  
+
+    </header>
+    
+
+    
+    <div class="article-meta">
+      <a href="/2019/12/22/Odoo%E5%BC%80%E5%8F%91%E2%80%94%E2%80%94%E5%AE%8C%E6%95%B4%E8%AF%B7%E5%81%87%E7%B3%BB%E7%BB%9F%E5%8A%9F%E8%83%BD%E9%9C%80%E6%B1%82%E5%8F%8A%E6%BA%90%E7%A0%81/" class="article-date">
+  <time datetime="2019-12-22T14:14:59.462Z" itemprop="datePublished">2019-12-22</time>
+</a>
+      
+    </div>
+    
+
+    
+
+    <div class="article-entry" itemprop="articleBody">
+      
+
+
+      
+
+      
+      <h1 id="请假系统功能要求"><a href="#请假系统功能要求" class="headerlink" title="请假系统功能要求"></a>请假系统功能要求</h1><p>1、 员工可填写请假表单，包括请假人、部门、开始时间、结束时间、天数、类型（病假、事假、年假），请假原因。<br>2、 员工可填写加班表单，包括加班人、部门、开始时间、结束时间、天数、加班原因。<br>3、 管理员、审批岗可见所有请假申请并进行批量审批及拒绝。<br>4、 部门经理只读部门内部请假列表。<br>5、 请假列表：统计显示请假天数、请假人数；维度（部门、姓名、时间）<br>6、 功能限制：请假天数最小单位0.5天，只可填0.5倍数。请假开始时间不得低于当前日期3天，调休不可超过加班天数。<br>7、 调休时间，年假，根据使用情况自动变更同步数据。<br>8、 表单状态：草稿、审批中、修改中（驳回状态）、审批通过，按钮根据状态显示。<br>9、 权限规划：管理员拥有最高权限。人力岗拥有所有权限，增删改（审批通过无法删除及修改）、权限配置及审批；部门经理只可见部门内部数据，进行审批；普通员工只可见个人请假数据，进行提交、修改；说明：员工提交单据由部门经理审批，部门经理可指定审批人。</p>
+<h2 id="所遇到的问题及解决方法："><a href="#所遇到的问题及解决方法：" class="headerlink" title="所遇到的问题及解决方法："></a>所遇到的问题及解决方法：</h2><p>1.时间日期问题的计算：用strptime将时间日期类型转换成字符串类型进行计算，将小时转化成上下午计算，解决时间有重复问题，运用数组将所有记录进行遍历比较，选择的时间不能在区间内</p>
+<p>2.批量选择服务器动作：涉及到员工权限问题，无法用员工权限用户组将服务器动作隐藏，因此将限制功能写入到按钮里，按钮所对应的方法进行限制判断。</p>
+<p>3.权限的配置：定义用户组，赋予权限，记录规则限制当前用户只能看到自己的数据</p>
+<p>4.人数和天数的统计总数：在view视图字段后加sum=“字段名”</p>
+<p>5.图表视图的显示:参考odoo，graph视图功能模块</p>
+<p>6.时间功能上的限制：运用python模型约束，对字段进行相对应的判断</p>
+<p>7.数据上的同步变更：将计算的数据放入继承用户个人信息记录表里，通过对继承的用户信息表取数据</p>
+<p>8.表单状态工作流按钮显示：在类中定义字段按钮以及按钮所对应方法，view视图中显示按钮（按钮绑定方法），点击按钮同步改变状态</p>
+<p>详情代码请见git仓库：<a href="https://github.com/xulejun/Leave_System" target="_blank" rel="noopener">https://github.com/xulejun/Leave_System</a></p>
+
+      
+      <!-- 打赏 -->
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2019/12/22/Odoo%E5%BC%80%E5%8F%91%E2%80%94%E2%80%94%E5%AE%8C%E6%95%B4%E8%AF%B7%E5%81%87%E7%B3%BB%E7%BB%9F%E5%8A%9F%E8%83%BD%E9%9C%80%E6%B1%82%E5%8F%8A%E6%BA%90%E7%A0%81/" data-id="ck4h3hfgp0001rgu4gyxaf2w6"
+        class="article-share-link">分享</a>
+      
+    </footer>
+
+  </div>
+
+  
+
+  
+  
+  
+
+  
+
+</article>
+    
+    <article id="post-TCP的三次握手与四次挥手理解及面试题" class="article article-type-post" itemscope
+  itemprop="blogPost" data-scroll-reveal>
+
+  <div class="article-inner">
+    
+    <header class="article-header">
+       
+<h2 itemprop="name">
+  <a class="article-title" href="/2019/12/22/TCP%E7%9A%84%E4%B8%89%E6%AC%A1%E6%8F%A1%E6%89%8B%E4%B8%8E%E5%9B%9B%E6%AC%A1%E6%8C%A5%E6%89%8B%E7%90%86%E8%A7%A3%E5%8F%8A%E9%9D%A2%E8%AF%95%E9%A2%98/"
+    >TCP的三次握手与四次挥手理解及面试题</a
+  >
+</h2>
+  
+
+    </header>
+    
+
+    
+    <div class="article-meta">
+      <a href="/2019/12/22/TCP%E7%9A%84%E4%B8%89%E6%AC%A1%E6%8F%A1%E6%89%8B%E4%B8%8E%E5%9B%9B%E6%AC%A1%E6%8C%A5%E6%89%8B%E7%90%86%E8%A7%A3%E5%8F%8A%E9%9D%A2%E8%AF%95%E9%A2%98/" class="article-date">
+  <time datetime="2019-12-22T14:14:51.286Z" itemprop="datePublished">2019-12-22</time>
+</a>
+      
+    </div>
+    
+
+    
+
+    <div class="article-entry" itemprop="articleBody">
+      
+
+
+      
+
+      
+      <p>借鉴他人博客参考，讲解很全面<br><a href="https://blog.csdn.net/qq_38950316/article/details/81087809" target="_blank" rel="noopener">https://blog.csdn.net/qq_38950316/article/details/81087809</a></p>
+
+      
+      <!-- 打赏 -->
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2019/12/22/TCP%E7%9A%84%E4%B8%89%E6%AC%A1%E6%8F%A1%E6%89%8B%E4%B8%8E%E5%9B%9B%E6%AC%A1%E6%8C%A5%E6%89%8B%E7%90%86%E8%A7%A3%E5%8F%8A%E9%9D%A2%E8%AF%95%E9%A2%98/" data-id="ck4h3hfgs0002rgu42cib7ldt"
+        class="article-share-link">分享</a>
+      
+    </footer>
+
+  </div>
+
+  
+
+  
+  
+  
+
+  
+
+</article>
+    
+    <article id="post-浏览器访问百度的整个过程" class="article article-type-post" itemscope
+  itemprop="blogPost" data-scroll-reveal>
+
+  <div class="article-inner">
+    
+    <header class="article-header">
+       
+<h2 itemprop="name">
+  <a class="article-title" href="/2019/12/22/%E6%B5%8F%E8%A7%88%E5%99%A8%E8%AE%BF%E9%97%AE%E7%99%BE%E5%BA%A6%E7%9A%84%E6%95%B4%E4%B8%AA%E8%BF%87%E7%A8%8B/"
+    >浏览器访问百度的整个过程</a
+  >
+</h2>
+  
+
+    </header>
+    
+
+    
+    <div class="article-meta">
+      <a href="/2019/12/22/%E6%B5%8F%E8%A7%88%E5%99%A8%E8%AE%BF%E9%97%AE%E7%99%BE%E5%BA%A6%E7%9A%84%E6%95%B4%E4%B8%AA%E8%BF%87%E7%A8%8B/" class="article-date">
+  <time datetime="2019-12-22T14:14:39.151Z" itemprop="datePublished">2019-12-22</time>
+</a>
+      
+    </div>
+    
+
+    
+
+    <div class="article-entry" itemprop="articleBody">
+      
+
+
+      
+
+      
+      <h2 id="浏览器访问百度的整个过程"><a href="#浏览器访问百度的整个过程" class="headerlink" title="浏览器访问百度的整个过程"></a>浏览器访问百度的整个过程</h2><p><strong>1.</strong>主要先要解析出百度域名<a href="http://www.baidu.com所对应的ip地址****（一个域名只对应一个IP地址，一个ip地址可对应多个域名）" target="_blank" rel="noopener">www.baidu.com所对应的ip地址****（一个域名只对应一个IP地址，一个ip地址可对应多个域名）</a><br>    1.先知道默认网关的mac地址（使用arp获取默认网关的mac地址）<br>    2.组织数据发送给默认网关(ip还是dns服务器的ip,但是mac地址是默认网关的mac地址)<br>    3.默认网关拥有转发数据的能力,把数据转发给路由器<br>    4.路由器根据自已的路由协议,来选择一个合适的较快的路径转发数据给目的网关<br>    5.目的网关(dns服务器所在的网关),把数据转发给dns服务器<br>    6.dns服务器查询解析出baidu.com对应的ip地址,并把它原路返回给请求这个域名的client</p>
+<p><strong>2.得到了baidu.com对应的ip地址后,会发送tcp的3次握手,进行连接</strong><br><strong>3.使用http协议发送请求数据给web服务器</strong><br><strong>4.web服务器收到数据请求之后,通过查询自已的服务器得到相应的结果,原路返回给浏览器<br>5.浏览器接收到数据后通过浏览器自已的渲染功能来显示这个网页</strong><br><strong>6.浏览器关闭tcp连接,即4次挥手</strong><img src="https://img-blog.csdnimg.cn/20191215111536294.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80Mzg0Mjg1Mw==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br>完成整个访问过程</p>
+
+      
+      <!-- 打赏 -->
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2019/12/22/%E6%B5%8F%E8%A7%88%E5%99%A8%E8%AE%BF%E9%97%AE%E7%99%BE%E5%BA%A6%E7%9A%84%E6%95%B4%E4%B8%AA%E8%BF%87%E7%A8%8B/" data-id="ck4h3hfgv0004rgu427os6pkb"
+        class="article-share-link">分享</a>
+      
+    </footer>
+
+  </div>
+
+  
+
+  
+  
+  
+
+  
+
+</article>
+    
+    <article id="post-动态图文超详解十大排序算法" class="article article-type-post" itemscope
+  itemprop="blogPost" data-scroll-reveal>
+
+  <div class="article-inner">
+    
+    <header class="article-header">
+       
+<h2 itemprop="name">
+  <a class="article-title" href="/2019/12/22/%E5%8A%A8%E6%80%81%E5%9B%BE%E6%96%87%E8%B6%85%E8%AF%A6%E8%A7%A3%E5%8D%81%E5%A4%A7%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95/"
+    >动态图文超详解十大排序算法</a
+  >
+</h2>
+  
+
+    </header>
+    
+
+    
+    <div class="article-meta">
+      <a href="/2019/12/22/%E5%8A%A8%E6%80%81%E5%9B%BE%E6%96%87%E8%B6%85%E8%AF%A6%E8%A7%A3%E5%8D%81%E5%A4%A7%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95/" class="article-date">
+  <time datetime="2019-12-22T14:14:29.121Z" itemprop="datePublished">2019-12-22</time>
+</a>
+      
+    </div>
+    
+
+    
+
+    <div class="article-entry" itemprop="articleBody">
+      
+
+
+      
+
+      
+      <h1 id="超级详细动图详解十大排序算法"><a href="#超级详细动图详解十大排序算法" class="headerlink" title="超级详细动图详解十大排序算法"></a>超级详细动图详解十大排序算法</h1><p><img src="https://img-blog.csdnimg.cn/20191010163824783.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80Mzg0Mjg1Mw==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br>动图详解见地址：<a href="https://www.jianshu.com/p/47170b1ced23" target="_blank" rel="noopener">https://www.jianshu.com/p/47170b1ced23</a></p>
+
+      
+      <!-- 打赏 -->
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2019/12/22/%E5%8A%A8%E6%80%81%E5%9B%BE%E6%96%87%E8%B6%85%E8%AF%A6%E8%A7%A3%E5%8D%81%E5%A4%A7%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95/" data-id="ck4h3hfg30000rgu4dxiedckq"
+        class="article-share-link">分享</a>
+      
+    </footer>
+
+  </div>
+
+  
+
+  
+  
+  
+
+  
+
+</article>
+    
+    <article id="post-完整图文配置Java环境变量" class="article article-type-post" itemscope
+  itemprop="blogPost" data-scroll-reveal>
+
+  <div class="article-inner">
+    
+    <header class="article-header">
+       
+<h2 itemprop="name">
+  <a class="article-title" href="/2019/12/22/%E5%AE%8C%E6%95%B4%E5%9B%BE%E6%96%87%E9%85%8D%E7%BD%AEJava%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F/"
+    >完整图文配置Java环境变量</a
+  >
+</h2>
+  
+
+    </header>
+    
+
+    
+    <div class="article-meta">
+      <a href="/2019/12/22/%E5%AE%8C%E6%95%B4%E5%9B%BE%E6%96%87%E9%85%8D%E7%BD%AEJava%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F/" class="article-date">
+  <time datetime="2019-12-22T14:13:40.851Z" itemprop="datePublished">2019-12-22</time>
+</a>
+      
+    </div>
+    
+
+    
+
+    <div class="article-entry" itemprop="articleBody">
+      
+
+
+      
+
+      
+      <h1 id="完整图文配置Java环境变量"><a href="#完整图文配置Java环境变量" class="headerlink" title="完整图文配置Java环境变量"></a>完整图文配置Java环境变量</h1><ul>
+<li>右击桌面图标“此电脑”</li>
+<li>选择“管理”，出现以下界面</li>
+<li>选择界面上高级系统设置<br><img src="https://img-blog.csdnimg.cn/20190927162406876.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80Mzg0Mjg1Mw==,size_16,color_FFFFFF,t_70" alt="如下图"></li>
+<li>选择界面的“环境变量”<br><img src="https://img-blog.csdnimg.cn/20190927162616957.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80Mzg0Mjg1Mw==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></li>
+<li>点击“新建”<br><img src="https://img-blog.csdnimg.cn/20190927162921408.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80Mzg0Mjg1Mw==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></li>
+<li><em>1.配置PATH路径*</em></li>
+<li>变量名：“PATH”</li>
+<li>变量值选择“浏览目录”；</li>
+<li>选择安装jdk下的bin目录<br><img src="https://img-blog.csdnimg.cn/20190927163753188.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80Mzg0Mjg1Mw==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></li>
+<li><em>2.配置JAVA_HOME*</em></li>
+<li>变量名：“JAVA_HOME”</li>
+<li>变量值选择“浏览目录”；</li>
+<li>选择安装的jdk目录<br><img src="https://img-blog.csdnimg.cn/20190927164404697.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80Mzg0Mjg1Mw==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></li>
+<li><em>3.配置CLASSPATH*</em></li>
+<li>变量名：“CLASSPATH”</li>
+<li>变量值：“.;E:jdk-10.0.2;”</li>
+<li>路径为java下的jdk所有文件目录（将路径更改，格式为“.;路径;”）<br><img src="https://img-blog.csdnimg.cn/20190927164751875.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80Mzg0Mjg1Mw==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></li>
+<li><em>4.检查配置*</em></li>
+<li>快捷键windows/Command + R，输入cmd；</li>
+<li>进入dos窗口，输入javac，回车出现以下画面； <img src="https://img-blog.csdnimg.cn/20190927170309169.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80Mzg0Mjg1Mw==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></li>
+<li>输入java -version，回车出现以下画面</li>
+<li><img src="https://img-blog.csdnimg.cn/20190927170455205.png" alt="在这里插入图片描述"></li>
+<li>恭喜，配置成功</li>
+</ul>
+
+      
+      <!-- 打赏 -->
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2019/12/22/%E5%AE%8C%E6%95%B4%E5%9B%BE%E6%96%87%E9%85%8D%E7%BD%AEJava%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F/" data-id="ck4h3hfgt0003rgu4g15bhc6h"
+        class="article-share-link">分享</a>
+      
+    </footer>
+
+  </div>
+
+  
+
+  
+  
+  
+
+  
+
+</article>
+    
     <article id="post-新手上传本地项目到github" class="article article-type-post" itemscope
   itemprop="blogPost" data-scroll-reveal>
 

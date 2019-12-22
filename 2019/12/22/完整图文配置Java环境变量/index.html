@@ -6,7 +6,7 @@
     
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
   <title>
-    新手上传本地项目到github |  Hexo
+    完整图文配置Java环境变量 |  Hexo
   </title>
   
   <link rel="shortcut icon" href="/favicon.ico" />
@@ -31,7 +31,7 @@
   <div id="app">
     <main class="content">
       <section class="outer">
-  <article id="post-新手上传本地项目到github" class="article article-type-post" itemscope
+  <article id="post-完整图文配置Java环境变量" class="article article-type-post" itemscope
   itemprop="blogPost" data-scroll-reveal>
 
   <div class="article-inner">
@@ -39,7 +39,7 @@
     <header class="article-header">
        
 <h1 class="article-title sea-center" style="border-left:0" itemprop="name">
-  新手上传本地项目到github
+  完整图文配置Java环境变量
 </h1>
   
 
@@ -48,8 +48,8 @@
 
     
     <div class="article-meta">
-      <a href="/2019/12/22/%E6%96%B0%E6%89%8B%E4%B8%8A%E4%BC%A0%E6%9C%AC%E5%9C%B0%E9%A1%B9%E7%9B%AE%E5%88%B0github/" class="article-date">
-  <time datetime="2019-12-22T05:10:28.198Z" itemprop="datePublished">2019-12-22</time>
+      <a href="/2019/12/22/%E5%AE%8C%E6%95%B4%E5%9B%BE%E6%96%87%E9%85%8D%E7%BD%AEJava%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F/" class="article-date">
+  <time datetime="2019-12-22T14:13:40.851Z" itemprop="datePublished">2019-12-22</time>
 </a>
       
     </div>
@@ -57,6 +57,8 @@
 
     
     
+    <div class="tocbot"></div>
+
 
 
 
@@ -70,17 +72,30 @@
       
 
       
-      <p>简单说说流程：<br>1.有github账号<br>2.官网下载git，官网下载速度很慢，附上淘宝镜像下载地址：<br><a href="https://npm.taobao.org/mirrors/git-for-windows/v2.23.0.windows.1/" target="_blank" rel="noopener">https://npm.taobao.org/mirrors/git-for-windows/v2.23.0.windows.1/</a><br>3.安装git，如若没有个人特殊要求，一直默认就好了<br>4.创建github里的仓库repository<br>5.通过git将本地文件上传到repository</p>
-<ul>
-<li>打开安装好的git bash</li>
-<li>cd进入你放项目文件的地址</li>
-<li>输入git init（当前项目的目录中生成本地的git管理）</li>
-<li>输入git add . （注意后面有个点<strong>.</strong>）</li>
-<li>输入 git commit -m “first commit”</li>
-<li>输入自己的账号或名字（按照上面的代码，加上自己github的账号或者邮箱）</li>
-<li>再输入git commit -m “first commit”时就会成功</li>
-<li>接着输入git remote add origin https://自己的仓库url地址</li>
-<li>最后一步，输入git push -u origin master（代码上传到github仓库）<br>附上完整图文地址<br><a href="https://blog.csdn.net/m0_37725003/article/details/80904824" target="_blank" rel="noopener">https://blog.csdn.net/m0_37725003/article/details/80904824</a></li>
+      <h1 id="完整图文配置Java环境变量"><a href="#完整图文配置Java环境变量" class="headerlink" title="完整图文配置Java环境变量"></a>完整图文配置Java环境变量</h1><ul>
+<li>右击桌面图标“此电脑”</li>
+<li>选择“管理”，出现以下界面</li>
+<li>选择界面上高级系统设置<br><img src="https://img-blog.csdnimg.cn/20190927162406876.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80Mzg0Mjg1Mw==,size_16,color_FFFFFF,t_70" alt="如下图"></li>
+<li>选择界面的“环境变量”<br><img src="https://img-blog.csdnimg.cn/20190927162616957.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80Mzg0Mjg1Mw==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></li>
+<li>点击“新建”<br><img src="https://img-blog.csdnimg.cn/20190927162921408.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80Mzg0Mjg1Mw==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></li>
+<li><em>1.配置PATH路径*</em></li>
+<li>变量名：“PATH”</li>
+<li>变量值选择“浏览目录”；</li>
+<li>选择安装jdk下的bin目录<br><img src="https://img-blog.csdnimg.cn/20190927163753188.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80Mzg0Mjg1Mw==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></li>
+<li><em>2.配置JAVA_HOME*</em></li>
+<li>变量名：“JAVA_HOME”</li>
+<li>变量值选择“浏览目录”；</li>
+<li>选择安装的jdk目录<br><img src="https://img-blog.csdnimg.cn/20190927164404697.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80Mzg0Mjg1Mw==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></li>
+<li><em>3.配置CLASSPATH*</em></li>
+<li>变量名：“CLASSPATH”</li>
+<li>变量值：“.;E:jdk-10.0.2;”</li>
+<li>路径为java下的jdk所有文件目录（将路径更改，格式为“.;路径;”）<br><img src="https://img-blog.csdnimg.cn/20190927164751875.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80Mzg0Mjg1Mw==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></li>
+<li><em>4.检查配置*</em></li>
+<li>快捷键windows/Command + R，输入cmd；</li>
+<li>进入dos窗口，输入javac，回车出现以下画面； <img src="https://img-blog.csdnimg.cn/20190927170309169.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80Mzg0Mjg1Mw==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></li>
+<li>输入java -version，回车出现以下画面</li>
+<li><img src="https://img-blog.csdnimg.cn/20190927170455205.png" alt="在这里插入图片描述"></li>
+<li>恭喜，配置成功</li>
 </ul>
 
       
@@ -92,7 +107,7 @@
         
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/12/22/%E6%96%B0%E6%89%8B%E4%B8%8A%E4%BC%A0%E6%9C%AC%E5%9C%B0%E9%A1%B9%E7%9B%AE%E5%88%B0github/" data-id="ck4gjzoff0000vou4hqrzchft"
+      <a data-url="http://yoursite.com/2019/12/22/%E5%AE%8C%E6%95%B4%E5%9B%BE%E6%96%87%E9%85%8D%E7%BD%AEJava%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F/" data-id="ck4h3hfgt0003rgu4g15bhc6h"
         class="article-share-link">分享</a>
       
     </footer>
@@ -103,15 +118,20 @@
   
   <nav class="article-nav">
     
-      <a href="/2019/12/22/%E5%AE%8C%E6%95%B4%E5%9B%BE%E6%96%87%E9%85%8D%E7%BD%AEJava%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F/" class="article-nav-link">
+      <a href="/2019/12/22/%E5%8A%A8%E6%80%81%E5%9B%BE%E6%96%87%E8%B6%85%E8%AF%A6%E8%A7%A3%E5%8D%81%E5%A4%A7%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95/" class="article-nav-link">
         <strong class="article-nav-caption">上一篇</strong>
         <div class="article-nav-title">
           
-            完整图文配置Java环境变量
+            动态图文超详解十大排序算法
           
         </div>
       </a>
     
+    
+      <a href="/2019/12/22/%E6%96%B0%E6%89%8B%E4%B8%8A%E4%BC%A0%E6%9C%AC%E5%9C%B0%E9%A1%B9%E7%9B%AE%E5%88%B0github/" class="article-nav-link">
+        <strong class="article-nav-caption">下一篇</strong>
+        <div class="article-nav-title">新手上传本地项目到github</div>
+      </a>
     
   </nav>
 

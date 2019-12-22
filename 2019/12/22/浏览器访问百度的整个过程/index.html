@@ -6,7 +6,7 @@
     
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
   <title>
-    新手上传本地项目到github |  Hexo
+    浏览器访问百度的整个过程 |  Hexo
   </title>
   
   <link rel="shortcut icon" href="/favicon.ico" />
@@ -31,7 +31,7 @@
   <div id="app">
     <main class="content">
       <section class="outer">
-  <article id="post-新手上传本地项目到github" class="article article-type-post" itemscope
+  <article id="post-浏览器访问百度的整个过程" class="article article-type-post" itemscope
   itemprop="blogPost" data-scroll-reveal>
 
   <div class="article-inner">
@@ -39,7 +39,7 @@
     <header class="article-header">
        
 <h1 class="article-title sea-center" style="border-left:0" itemprop="name">
-  新手上传本地项目到github
+  浏览器访问百度的整个过程
 </h1>
   
 
@@ -48,8 +48,8 @@
 
     
     <div class="article-meta">
-      <a href="/2019/12/22/%E6%96%B0%E6%89%8B%E4%B8%8A%E4%BC%A0%E6%9C%AC%E5%9C%B0%E9%A1%B9%E7%9B%AE%E5%88%B0github/" class="article-date">
-  <time datetime="2019-12-22T05:10:28.198Z" itemprop="datePublished">2019-12-22</time>
+      <a href="/2019/12/22/%E6%B5%8F%E8%A7%88%E5%99%A8%E8%AE%BF%E9%97%AE%E7%99%BE%E5%BA%A6%E7%9A%84%E6%95%B4%E4%B8%AA%E8%BF%87%E7%A8%8B/" class="article-date">
+  <time datetime="2019-12-22T14:14:39.151Z" itemprop="datePublished">2019-12-22</time>
 </a>
       
     </div>
@@ -57,6 +57,8 @@
 
     
     
+    <div class="tocbot"></div>
+
 
 
 
@@ -70,18 +72,8 @@
       
 
       
-      <p>简单说说流程：<br>1.有github账号<br>2.官网下载git，官网下载速度很慢，附上淘宝镜像下载地址：<br><a href="https://npm.taobao.org/mirrors/git-for-windows/v2.23.0.windows.1/" target="_blank" rel="noopener">https://npm.taobao.org/mirrors/git-for-windows/v2.23.0.windows.1/</a><br>3.安装git，如若没有个人特殊要求，一直默认就好了<br>4.创建github里的仓库repository<br>5.通过git将本地文件上传到repository</p>
-<ul>
-<li>打开安装好的git bash</li>
-<li>cd进入你放项目文件的地址</li>
-<li>输入git init（当前项目的目录中生成本地的git管理）</li>
-<li>输入git add . （注意后面有个点<strong>.</strong>）</li>
-<li>输入 git commit -m “first commit”</li>
-<li>输入自己的账号或名字（按照上面的代码，加上自己github的账号或者邮箱）</li>
-<li>再输入git commit -m “first commit”时就会成功</li>
-<li>接着输入git remote add origin https://自己的仓库url地址</li>
-<li>最后一步，输入git push -u origin master（代码上传到github仓库）<br>附上完整图文地址<br><a href="https://blog.csdn.net/m0_37725003/article/details/80904824" target="_blank" rel="noopener">https://blog.csdn.net/m0_37725003/article/details/80904824</a></li>
-</ul>
+      <h2 id="浏览器访问百度的整个过程"><a href="#浏览器访问百度的整个过程" class="headerlink" title="浏览器访问百度的整个过程"></a>浏览器访问百度的整个过程</h2><p><strong>1.</strong>主要先要解析出百度域名<a href="http://www.baidu.com所对应的ip地址****（一个域名只对应一个IP地址，一个ip地址可对应多个域名）" target="_blank" rel="noopener">www.baidu.com所对应的ip地址****（一个域名只对应一个IP地址，一个ip地址可对应多个域名）</a><br>    1.先知道默认网关的mac地址（使用arp获取默认网关的mac地址）<br>    2.组织数据发送给默认网关(ip还是dns服务器的ip,但是mac地址是默认网关的mac地址)<br>    3.默认网关拥有转发数据的能力,把数据转发给路由器<br>    4.路由器根据自已的路由协议,来选择一个合适的较快的路径转发数据给目的网关<br>    5.目的网关(dns服务器所在的网关),把数据转发给dns服务器<br>    6.dns服务器查询解析出baidu.com对应的ip地址,并把它原路返回给请求这个域名的client</p>
+<p><strong>2.得到了baidu.com对应的ip地址后,会发送tcp的3次握手,进行连接</strong><br><strong>3.使用http协议发送请求数据给web服务器</strong><br><strong>4.web服务器收到数据请求之后,通过查询自已的服务器得到相应的结果,原路返回给浏览器<br>5.浏览器接收到数据后通过浏览器自已的渲染功能来显示这个网页</strong><br><strong>6.浏览器关闭tcp连接,即4次挥手</strong><img src="https://img-blog.csdnimg.cn/20191215111536294.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80Mzg0Mjg1Mw==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br>完成整个访问过程</p>
 
       
       <!-- 打赏 -->
@@ -92,7 +84,7 @@
         
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/12/22/%E6%96%B0%E6%89%8B%E4%B8%8A%E4%BC%A0%E6%9C%AC%E5%9C%B0%E9%A1%B9%E7%9B%AE%E5%88%B0github/" data-id="ck4gjzoff0000vou4hqrzchft"
+      <a data-url="http://yoursite.com/2019/12/22/%E6%B5%8F%E8%A7%88%E5%99%A8%E8%AE%BF%E9%97%AE%E7%99%BE%E5%BA%A6%E7%9A%84%E6%95%B4%E4%B8%AA%E8%BF%87%E7%A8%8B/" data-id="ck4h3hfgv0004rgu427os6pkb"
         class="article-share-link">分享</a>
       
     </footer>
@@ -103,15 +95,20 @@
   
   <nav class="article-nav">
     
-      <a href="/2019/12/22/%E5%AE%8C%E6%95%B4%E5%9B%BE%E6%96%87%E9%85%8D%E7%BD%AEJava%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F/" class="article-nav-link">
+      <a href="/2019/12/22/TCP%E7%9A%84%E4%B8%89%E6%AC%A1%E6%8F%A1%E6%89%8B%E4%B8%8E%E5%9B%9B%E6%AC%A1%E6%8C%A5%E6%89%8B%E7%90%86%E8%A7%A3%E5%8F%8A%E9%9D%A2%E8%AF%95%E9%A2%98/" class="article-nav-link">
         <strong class="article-nav-caption">上一篇</strong>
         <div class="article-nav-title">
           
-            完整图文配置Java环境变量
+            TCP的三次握手与四次挥手理解及面试题
           
         </div>
       </a>
     
+    
+      <a href="/2019/12/22/%E5%8A%A8%E6%80%81%E5%9B%BE%E6%96%87%E8%B6%85%E8%AF%A6%E8%A7%A3%E5%8D%81%E5%A4%A7%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95/" class="article-nav-link">
+        <strong class="article-nav-caption">下一篇</strong>
+        <div class="article-nav-title">动态图文超详解十大排序算法</div>
+      </a>
     
   </nav>
 

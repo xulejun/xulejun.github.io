@@ -6,7 +6,7 @@
     
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
   <title>
-    新手上传本地项目到github |  Hexo
+    Odoo开发——完整请假系统功能需求及源码 |  Hexo
   </title>
   
   <link rel="shortcut icon" href="/favicon.ico" />
@@ -31,7 +31,7 @@
   <div id="app">
     <main class="content">
       <section class="outer">
-  <article id="post-新手上传本地项目到github" class="article article-type-post" itemscope
+  <article id="post-Odoo开发——完整请假系统功能需求及源码" class="article article-type-post" itemscope
   itemprop="blogPost" data-scroll-reveal>
 
   <div class="article-inner">
@@ -39,7 +39,7 @@
     <header class="article-header">
        
 <h1 class="article-title sea-center" style="border-left:0" itemprop="name">
-  新手上传本地项目到github
+  Odoo开发——完整请假系统功能需求及源码
 </h1>
   
 
@@ -48,8 +48,8 @@
 
     
     <div class="article-meta">
-      <a href="/2019/12/22/%E6%96%B0%E6%89%8B%E4%B8%8A%E4%BC%A0%E6%9C%AC%E5%9C%B0%E9%A1%B9%E7%9B%AE%E5%88%B0github/" class="article-date">
-  <time datetime="2019-12-22T05:10:28.198Z" itemprop="datePublished">2019-12-22</time>
+      <a href="/2019/12/22/Odoo%E5%BC%80%E5%8F%91%E2%80%94%E2%80%94%E5%AE%8C%E6%95%B4%E8%AF%B7%E5%81%87%E7%B3%BB%E7%BB%9F%E5%8A%9F%E8%83%BD%E9%9C%80%E6%B1%82%E5%8F%8A%E6%BA%90%E7%A0%81/" class="article-date">
+  <time datetime="2019-12-22T14:14:59.462Z" itemprop="datePublished">2019-12-22</time>
 </a>
       
     </div>
@@ -57,6 +57,8 @@
 
     
     
+    <div class="tocbot"></div>
+
 
 
 
@@ -70,18 +72,16 @@
       
 
       
-      <p>简单说说流程：<br>1.有github账号<br>2.官网下载git，官网下载速度很慢，附上淘宝镜像下载地址：<br><a href="https://npm.taobao.org/mirrors/git-for-windows/v2.23.0.windows.1/" target="_blank" rel="noopener">https://npm.taobao.org/mirrors/git-for-windows/v2.23.0.windows.1/</a><br>3.安装git，如若没有个人特殊要求，一直默认就好了<br>4.创建github里的仓库repository<br>5.通过git将本地文件上传到repository</p>
-<ul>
-<li>打开安装好的git bash</li>
-<li>cd进入你放项目文件的地址</li>
-<li>输入git init（当前项目的目录中生成本地的git管理）</li>
-<li>输入git add . （注意后面有个点<strong>.</strong>）</li>
-<li>输入 git commit -m “first commit”</li>
-<li>输入自己的账号或名字（按照上面的代码，加上自己github的账号或者邮箱）</li>
-<li>再输入git commit -m “first commit”时就会成功</li>
-<li>接着输入git remote add origin https://自己的仓库url地址</li>
-<li>最后一步，输入git push -u origin master（代码上传到github仓库）<br>附上完整图文地址<br><a href="https://blog.csdn.net/m0_37725003/article/details/80904824" target="_blank" rel="noopener">https://blog.csdn.net/m0_37725003/article/details/80904824</a></li>
-</ul>
+      <h1 id="请假系统功能要求"><a href="#请假系统功能要求" class="headerlink" title="请假系统功能要求"></a>请假系统功能要求</h1><p>1、 员工可填写请假表单，包括请假人、部门、开始时间、结束时间、天数、类型（病假、事假、年假），请假原因。<br>2、 员工可填写加班表单，包括加班人、部门、开始时间、结束时间、天数、加班原因。<br>3、 管理员、审批岗可见所有请假申请并进行批量审批及拒绝。<br>4、 部门经理只读部门内部请假列表。<br>5、 请假列表：统计显示请假天数、请假人数；维度（部门、姓名、时间）<br>6、 功能限制：请假天数最小单位0.5天，只可填0.5倍数。请假开始时间不得低于当前日期3天，调休不可超过加班天数。<br>7、 调休时间，年假，根据使用情况自动变更同步数据。<br>8、 表单状态：草稿、审批中、修改中（驳回状态）、审批通过，按钮根据状态显示。<br>9、 权限规划：管理员拥有最高权限。人力岗拥有所有权限，增删改（审批通过无法删除及修改）、权限配置及审批；部门经理只可见部门内部数据，进行审批；普通员工只可见个人请假数据，进行提交、修改；说明：员工提交单据由部门经理审批，部门经理可指定审批人。</p>
+<h2 id="所遇到的问题及解决方法："><a href="#所遇到的问题及解决方法：" class="headerlink" title="所遇到的问题及解决方法："></a>所遇到的问题及解决方法：</h2><p>1.时间日期问题的计算：用strptime将时间日期类型转换成字符串类型进行计算，将小时转化成上下午计算，解决时间有重复问题，运用数组将所有记录进行遍历比较，选择的时间不能在区间内</p>
+<p>2.批量选择服务器动作：涉及到员工权限问题，无法用员工权限用户组将服务器动作隐藏，因此将限制功能写入到按钮里，按钮所对应的方法进行限制判断。</p>
+<p>3.权限的配置：定义用户组，赋予权限，记录规则限制当前用户只能看到自己的数据</p>
+<p>4.人数和天数的统计总数：在view视图字段后加sum=“字段名”</p>
+<p>5.图表视图的显示:参考odoo，graph视图功能模块</p>
+<p>6.时间功能上的限制：运用python模型约束，对字段进行相对应的判断</p>
+<p>7.数据上的同步变更：将计算的数据放入继承用户个人信息记录表里，通过对继承的用户信息表取数据</p>
+<p>8.表单状态工作流按钮显示：在类中定义字段按钮以及按钮所对应方法，view视图中显示按钮（按钮绑定方法），点击按钮同步改变状态</p>
+<p>详情代码请见git仓库：<a href="https://github.com/xulejun/Leave_System" target="_blank" rel="noopener">https://github.com/xulejun/Leave_System</a></p>
 
       
       <!-- 打赏 -->
@@ -92,7 +92,7 @@
         
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/12/22/%E6%96%B0%E6%89%8B%E4%B8%8A%E4%BC%A0%E6%9C%AC%E5%9C%B0%E9%A1%B9%E7%9B%AE%E5%88%B0github/" data-id="ck4gjzoff0000vou4hqrzchft"
+      <a data-url="http://yoursite.com/2019/12/22/Odoo%E5%BC%80%E5%8F%91%E2%80%94%E2%80%94%E5%AE%8C%E6%95%B4%E8%AF%B7%E5%81%87%E7%B3%BB%E7%BB%9F%E5%8A%9F%E8%83%BD%E9%9C%80%E6%B1%82%E5%8F%8A%E6%BA%90%E7%A0%81/" data-id="ck4h3hfgp0001rgu4gyxaf2w6"
         class="article-share-link">分享</a>
       
     </footer>
@@ -103,15 +103,11 @@
   
   <nav class="article-nav">
     
-      <a href="/2019/12/22/%E5%AE%8C%E6%95%B4%E5%9B%BE%E6%96%87%E9%85%8D%E7%BD%AEJava%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F/" class="article-nav-link">
-        <strong class="article-nav-caption">上一篇</strong>
-        <div class="article-nav-title">
-          
-            完整图文配置Java环境变量
-          
-        </div>
-      </a>
     
+      <a href="/2019/12/22/TCP%E7%9A%84%E4%B8%89%E6%AC%A1%E6%8F%A1%E6%89%8B%E4%B8%8E%E5%9B%9B%E6%AC%A1%E6%8C%A5%E6%89%8B%E7%90%86%E8%A7%A3%E5%8F%8A%E9%9D%A2%E8%AF%95%E9%A2%98/" class="article-nav-link">
+        <strong class="article-nav-caption">下一篇</strong>
+        <div class="article-nav-title">TCP的三次握手与四次挥手理解及面试题</div>
+      </a>
     
   </nav>
 
