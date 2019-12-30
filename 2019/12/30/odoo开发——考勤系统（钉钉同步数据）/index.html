@@ -6,7 +6,7 @@
     
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
   <title>
-    如何在github上添加密钥 |  XuLeJun
+    odoo开发——考勤系统（钉钉同步数据） |  XuLeJun
   </title>
   
   <link rel="shortcut icon" href="/favicon.ico" />
@@ -31,7 +31,7 @@
   <div id="app">
     <main class="content">
       <section class="outer">
-  <article id="post-如何在github上添加密钥" class="article article-type-post" itemscope
+  <article id="post-odoo开发——考勤系统（钉钉同步数据）" class="article article-type-post" itemscope
   itemprop="blogPost" data-scroll-reveal>
 
   <div class="article-inner">
@@ -39,7 +39,7 @@
     <header class="article-header">
        
 <h1 class="article-title sea-center" style="border-left:0" itemprop="name">
-  如何在github上添加密钥
+  odoo开发——考勤系统（钉钉同步数据）
 </h1>
   
 
@@ -48,8 +48,8 @@
 
     
     <div class="article-meta">
-      <a href="/2019/12/24/%E5%A6%82%E4%BD%95%E5%9C%A8github%E4%B8%8A%E6%B7%BB%E5%8A%A0%E5%AF%86%E9%92%A5/" class="article-date">
-  <time datetime="2019-12-24T04:58:54.334Z" itemprop="datePublished">2019-12-24</time>
+      <a href="/2019/12/30/odoo%E5%BC%80%E5%8F%91%E2%80%94%E2%80%94%E8%80%83%E5%8B%A4%E7%B3%BB%E7%BB%9F%EF%BC%88%E9%92%89%E9%92%89%E5%90%8C%E6%AD%A5%E6%95%B0%E6%8D%AE%EF%BC%89/" class="article-date">
+  <time datetime="2019-12-30T06:59:13.322Z" itemprop="datePublished">2019-12-30</time>
 </a>
       
     </div>
@@ -57,6 +57,8 @@
 
     
     
+    <div class="tocbot"></div>
+
 
 
 
@@ -70,13 +72,27 @@
       
 
       
-      <p><strong>首先得在本地安装好git，有github账号</strong><br>1.本地安装好git；</p>
-<p>2.桌面右键 Git Bash Here 打开git命令行；</p>
-<p>3.ssh-keygen -t rsa -C “<a href="mailto:nideyouxiang@xxx.com">nideyouxiang@xxx.com</a>“   （全部按enter，后面为github所填邮箱）；</p>
-<p>4.cd ~/.ssh   （如果没有执行第三步，则不会有这个文件夹；一般在此处能找到该文件C:\Users\Administrator.ssh）；</p>
-<p>5.cat id_rsa.pub     在命令行打开这个文件，会直接输出密钥；</p>
-<p>6.复制该密钥，打开github ，点自己头像 &gt;&gt; settings &gt;&gt; SSH and GPG keys &gt;&gt;New SSH key </p>
-<p>7.titile（可随便填写，例如SSHkey）；key里粘贴第六步的内容，完成密钥配置。</p>
+      <h2 id="功能要求："><a href="#功能要求：" class="headerlink" title="功能要求："></a>功能要求：</h2><p>1、 建立员工档案表、考勤异常表、考勤明细表。</p>
+<p>2、 从钉钉同步在职员工基本信息，每半小时一次，可手动同步。</p>
+<p>3、 从钉钉同步员工考勤数据，每半小时一次，可手动同步。</p>
+<p>4、 考勤明细表记录所有考勤信息，异常表只记录考勤异常的记录</p>
+<p>5、 补卡申请表单状态：草稿、提交申请、审批中、修改中（驳回状态）、审批通过，按钮根据状态显示。</p>
+<p>6、 员工每个月只有一次补卡机会，当补卡次数为0时，可以创建补卡申请表单。补卡申请表状态为通过时，考勤异常表显示该时间段已补卡，补卡次数减少。</p>
+<p>7、菜单规划：员工档案、考勤异常、考勤明细、补卡申请、系统设置（信息同步、权限设置），根据角色可见。</p>
+<p>8、权限设置：<br>管理员：拥有全部权限，可进行同步操作<br>部门经理：拥有自己部门的考勤异常表、考勤明细表、员工档案表和审批自己部门员工补卡申请表的权限<br>协调人：拥有审批补卡申请表的权限<br>普通用户：可查看个人考勤明细，考勤异常表，可提交补卡申请表，审批状态为审批中，则不可修改表单（按月）</p>
+<h2 id="问题思路及解决方法："><a href="#问题思路及解决方法：" class="headerlink" title="问题思路及解决方法："></a>问题思路及解决方法：</h2><p><strong>1、如何获取钉钉的数据：</strong></p>
+<p>查阅钉钉开发文档——创建钉钉个人应用——利用个人应用上的appKey和appSecret通过接口获取access_token——通过access_token和开发文档上的各种接口来获取相对应的数据</p>
+<p><strong>2、如何设置定时同步数据：</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">&lt;record id&#x3D;&quot;ir_cron_file_action&quot; model&#x3D;&quot;ir.cron&quot;&gt;</span><br><span class="line">            &lt;field name&#x3D;&quot;name&quot;&gt;信息自动同步&lt;&#x2F;field&gt;</span><br><span class="line">            &lt;field name&#x3D;&quot;model_id&quot; ref&#x3D;&quot;model_check_syn&quot;&#x2F;&gt;</span><br><span class="line">            &lt;field name&#x3D;&quot;state&quot;&gt;code&lt;&#x2F;field&gt;</span><br><span class="line">            &lt;field name&#x3D;&quot;code&quot;&gt;model.button_create_file()&lt;&#x2F;field&gt;</span><br><span class="line">            &lt;field name&#x3D;&quot;interval_number&quot;&gt;30&lt;&#x2F;field&gt;</span><br><span class="line">            &lt;field name&#x3D;&quot;interval_type&quot;&gt;hours&lt;&#x2F;field&gt;</span><br><span class="line">            &lt;field name&#x3D;&quot;numbercall&quot;&gt;-1&lt;&#x2F;field&gt;</span><br><span class="line">            &lt;field eval&#x3D;&quot;True&quot; name&#x3D;&quot;doall&quot;&#x2F;&gt;</span><br><span class="line">            &lt;field name&#x3D;&quot;user_id&quot; ref&#x3D;&quot;base.user_root&quot;&#x2F;&gt;</span><br><span class="line">        &lt;&#x2F;record&gt;</span><br></pre></td></tr></table></figure>
+<p>对于想了解字段详细介绍可参考该链接：<a href="https://www.cnblogs.com/ygj0930/p/10826270.html" target="_blank" rel="noopener">https://www.cnblogs.com/ygj0930/p/10826270.html</a></p>
+<p><strong>3、如何设置菜单上手动同步按钮：</strong><br>模型上定义按钮方法——菜单上利用向导创建按钮——按钮绑定方法</p>
+<p><strong>4、项目心得体会：</strong></p>
+<ul>
+<li>自己需要了解每个字段属性的含义，观看源码或查阅资料，不然很容易出现bug，会降低自己的开发效率</li>
+<li>在明白项目需求时，不要急于求成，先思考，想清楚了该怎么实现，再动手，不然后期会造成代码冗余，还会出现各种隐藏bug</li>
+<li>对于逻辑代码这块，一定要思考，一定要思考，一定要思考，思路要清晰，脚踏实地一步一步来，才能完整的实现逻辑功能</li>
+</ul>
+<p>完整功能实现功能需求项目源码：<a href="https://github.com/xulejun/check.git" target="_blank" rel="noopener">https://github.com/xulejun/check.git</a></p>
 
       
       <!-- 打赏 -->
@@ -87,7 +103,7 @@
         
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/12/24/%E5%A6%82%E4%BD%95%E5%9C%A8github%E4%B8%8A%E6%B7%BB%E5%8A%A0%E5%AF%86%E9%92%A5/" data-id="ck4jehlzc0000mwu443ou9yqh"
+      <a data-url="http://yoursite.com/2019/12/30/odoo%E5%BC%80%E5%8F%91%E2%80%94%E2%80%94%E8%80%83%E5%8B%A4%E7%B3%BB%E7%BB%9F%EF%BC%88%E9%92%89%E9%92%89%E5%90%8C%E6%AD%A5%E6%95%B0%E6%8D%AE%EF%BC%89/" data-id="ck4s3fewx0000f0u4fvqrbdu0"
         class="article-share-link">分享</a>
       
     </footer>
@@ -98,19 +114,10 @@
   
   <nav class="article-nav">
     
-      <a href="/2019/12/30/odoo%E5%BC%80%E5%8F%91%E2%80%94%E2%80%94%E8%80%83%E5%8B%A4%E7%B3%BB%E7%BB%9F%EF%BC%88%E9%92%89%E9%92%89%E5%90%8C%E6%AD%A5%E6%95%B0%E6%8D%AE%EF%BC%89/" class="article-nav-link">
-        <strong class="article-nav-caption">上一篇</strong>
-        <div class="article-nav-title">
-          
-            odoo开发——考勤系统（钉钉同步数据）
-          
-        </div>
-      </a>
     
-    
-      <a href="/2019/12/22/Odoo%E5%BC%80%E5%8F%91%E2%80%94%E2%80%94%E5%AE%8C%E6%95%B4%E8%AF%B7%E5%81%87%E7%B3%BB%E7%BB%9F%E5%8A%9F%E8%83%BD%E9%9C%80%E6%B1%82%E5%8F%8A%E6%BA%90%E7%A0%81/" class="article-nav-link">
+      <a href="/2019/12/24/%E5%A6%82%E4%BD%95%E5%9C%A8github%E4%B8%8A%E6%B7%BB%E5%8A%A0%E5%AF%86%E9%92%A5/" class="article-nav-link">
         <strong class="article-nav-caption">下一篇</strong>
-        <div class="article-nav-title">Odoo开发——完整请假系统功能需求及源码</div>
+        <div class="article-nav-title">如何在github上添加密钥</div>
       </a>
     
   </nav>
