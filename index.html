@@ -63,6 +63,350 @@
 
     
     
+    <article id="post-Java中super和this的区别" class="article article-type-post" itemscope
+  itemprop="blogPost" data-scroll-reveal>
+
+  <div class="article-inner">
+    
+    <header class="article-header">
+       
+<h2 itemprop="name">
+  <a class="article-title" href="/2020/01/02/Java%E4%B8%ADsuper%E5%92%8Cthis%E7%9A%84%E5%8C%BA%E5%88%AB/"
+    >Java中super和this的区别</a
+  >
+</h2>
+  
+
+    </header>
+    
+
+    
+    <div class="article-meta">
+      <a href="/2020/01/02/Java%E4%B8%ADsuper%E5%92%8Cthis%E7%9A%84%E5%8C%BA%E5%88%AB/" class="article-date">
+  <time datetime="2020-01-02T02:50:07.536Z" itemprop="datePublished">2020-01-02</time>
+</a>
+      
+    </div>
+    
+
+    
+
+    <div class="article-entry" itemprop="articleBody">
+      
+
+
+      
+
+      
+      <h2 id="本质区别："><a href="#本质区别：" class="headerlink" title="本质区别："></a>本质区别：</h2><p>1、super（参数）：调用基类中的另一个构造函数（应该为构造函数的第一条语句）</p>
+<p>2、this（参数）：调用本类中另一种形式的构造函数（应该为构造函数的第一条语句）</p>
+<p>3、super：它引用当前对象的直接父类中的成员（用来访问直接父类中被隐藏的父类中成员数据或函数，基类与派生类中有相同成员定义时：super.变量名，super.成员函数数据名（实参））</p>
+<p>4、this：它代表当前对象名（在程序中易产生二义性之处，应使用this来指明当前对象；如果函数的形参与类中的成员数据同名，这时需用this来指明成员变量名）</p>
+<p>5、调用super()必须写在子类构造方法的第一行，否则编译不通过。每个子类构造方法的第一条语句，都是隐含地调用super()，如果父类没有这种形式的构造函数，那么在遍历的时候就会报错</p>
+<p>6、super()和this()类似，区别是，super()从子类中调用父类的构造方法，this()在同一类内调用其它方法</p>
+<p>7、super()和this()均需放在构造方法内第一行</p>
+<p>8、尽管可以用this调用一个构造器，但却不能调用两个</p>
+<p>9、this和super不能同时出现在一个构造函数里面，因为this必然会调用其它的构造函数，其它的构造函数必然也会有super语句的存在，所以在同一个构造函数里面有相同的语句，就失去了语句的意义，编译器也不会通过</p>
+<p>10、this()和super()都指的是对象，所以，均不可以在static环境中使用。包括static变量、static方法、static语句块</p>
+<p>11、从本质上讲，this是一个指向本对象的指针，然而super是一个Java关键字</p>
+<p> (1.)代表的事物不同</p>
+<pre><code>super代表的是父类空间的引用
+
+this代表的是所属函数的调用者对象</code></pre><p>(2.)使用前提不同</p>
+<pre><code>super必须要有继承关系才能使用
+
+this不需要继承关系也能使用</code></pre><p>(3.)调用的构造函数不同</p>
+<pre><code>super：调用父类的构造函数
+
+this：调用所属类的构造函数</code></pre>
+      
+      <!-- 打赏 -->
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2020/01/02/Java%E4%B8%ADsuper%E5%92%8Cthis%E7%9A%84%E5%8C%BA%E5%88%AB/" data-id="ck4w4ue3n0000f4u43zqjcxc3"
+        class="article-share-link">分享</a>
+      
+    </footer>
+
+  </div>
+
+  
+
+  
+  
+  
+
+  
+
+</article>
+    
+    <article id="post-Java抽象类和接口的区别" class="article article-type-post" itemscope
+  itemprop="blogPost" data-scroll-reveal>
+
+  <div class="article-inner">
+    
+    <header class="article-header">
+       
+<h2 itemprop="name">
+  <a class="article-title" href="/2020/01/02/Java%E6%8A%BD%E8%B1%A1%E7%B1%BB%E5%92%8C%E6%8E%A5%E5%8F%A3%E7%9A%84%E5%8C%BA%E5%88%AB/"
+    >Java抽象类和接口的区别</a
+  >
+</h2>
+  
+
+    </header>
+    
+
+    
+    <div class="article-meta">
+      <a href="/2020/01/02/Java%E6%8A%BD%E8%B1%A1%E7%B1%BB%E5%92%8C%E6%8E%A5%E5%8F%A3%E7%9A%84%E5%8C%BA%E5%88%AB/" class="article-date">
+  <time datetime="2020-01-02T02:50:01.002Z" itemprop="datePublished">2020-01-02</time>
+</a>
+      
+    </div>
+    
+
+    
+
+    <div class="article-entry" itemprop="articleBody">
+      
+
+
+      
+
+      
+      <h2 id="定义和作用："><a href="#定义和作用：" class="headerlink" title="定义和作用："></a>定义和作用：</h2><p>1.abstract抽象类：使用extends关键字来继承抽象类，不能用来实例化对象，声明抽象类的唯一目的是为了将来对该类进行扩充。<br>2.接口：子类使用关键字implements来实现接口，它需要提供接口中所有声明的方法的实现</p>
+<h2 id="修饰符："><a href="#修饰符：" class="headerlink" title="修饰符："></a>修饰符：</h2><p>1.抽象类：public、protected和default，不能用private、static、synchronized、native访问修饰符修饰<br>2.接口：接口中的变量默认是public static final 的，方法默认是public abstract 的；对于Java8中添加默认修饰符</p>
+<h2 id="属性："><a href="#属性：" class="headerlink" title="属性："></a>属性：</h2><p>1.抽象类：可以有构造器，可以没有抽象方法，可以有main方法，可以有默认的方法实现，单继承<br>2.接口：没有构造器，完全是抽象方法，不含有main方法，不可有方法实现，多继承</p>
+<p><img src="https://img-blog.csdnimg.cn/20191231094220392.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80Mzg0Mjg1Mw==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
+
+      
+      <!-- 打赏 -->
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2020/01/02/Java%E6%8A%BD%E8%B1%A1%E7%B1%BB%E5%92%8C%E6%8E%A5%E5%8F%A3%E7%9A%84%E5%8C%BA%E5%88%AB/" data-id="ck4w4ue460001f4u4329ndx1l"
+        class="article-share-link">分享</a>
+      
+    </footer>
+
+  </div>
+
+  
+
+  
+  
+  
+
+  
+
+</article>
+    
+    <article id="post-String、Stringbuffer与Stringbuilder的区别" class="article article-type-post" itemscope
+  itemprop="blogPost" data-scroll-reveal>
+
+  <div class="article-inner">
+    
+    <header class="article-header">
+       
+<h2 itemprop="name">
+  <a class="article-title" href="/2020/01/02/String%E3%80%81Stringbuffer%E4%B8%8EStringbuilder%E7%9A%84%E5%8C%BA%E5%88%AB/"
+    >String、Stringbuffer与Stringbuilder的区别</a
+  >
+</h2>
+  
+
+    </header>
+    
+
+    
+    <div class="article-meta">
+      <a href="/2020/01/02/String%E3%80%81Stringbuffer%E4%B8%8EStringbuilder%E7%9A%84%E5%8C%BA%E5%88%AB/" class="article-date">
+  <time datetime="2020-01-02T02:48:34.213Z" itemprop="datePublished">2020-01-02</time>
+</a>
+      
+    </div>
+    
+
+    
+
+    <div class="article-entry" itemprop="articleBody">
+      
+
+
+      
+
+      
+      <h2 id="运行速度："><a href="#运行速度：" class="headerlink" title="运行速度："></a>运行速度：</h2><p>运行速度，或者说是执行速度，在这方面运行速度快慢为：StringBuilder &gt; StringBuffer &gt; String</p>
+<p>String最慢的原因：String为字符串常量，而StringBuilder和StringBuffer均为字符串变量，即String对象一旦创建之后该对象是不可更改的，但后两者的对象是变量，是可以更改的。</p>
+<h2 id="线程安全："><a href="#线程安全：" class="headerlink" title="线程安全："></a>线程安全：</h2><p>在线程安全上，StringBuilder是线程不安全的，而StringBuffer是线程安全的</p>
+<p>如果一个StringBuffer对象在字符串缓冲区被多个线程使用时，StringBuffer中很多方法可以带有synchronized关键字，所以可以保证线程是安全的，但StringBuilder的方法则没有该关键字，所以不能保证线程安全，有可能会出现一些错误的操作。所以如果要进行的操作是多线程的，那么就要使用StringBuffer，但是在单线程的情况下，还是建议使用速度比较快的StringBuilder。</p>
+<h2 id="总结："><a href="#总结：" class="headerlink" title="总结："></a>总结：</h2><p>1）如果操作少量的数据用String<br>2）单线程下操作大量的数据用StringBuilder<br>3）多线程下操作大量的数据用StringBuffer</p>
+
+      
+      <!-- 打赏 -->
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2020/01/02/String%E3%80%81Stringbuffer%E4%B8%8EStringbuilder%E7%9A%84%E5%8C%BA%E5%88%AB/" data-id="ck4w4ue4w0004f4u48yul9gip"
+        class="article-share-link">分享</a>
+      
+    </footer>
+
+  </div>
+
+  
+
+  
+  
+  
+
+  
+
+</article>
+    
+    <article id="post-TCP和UDP详解" class="article article-type-post" itemscope
+  itemprop="blogPost" data-scroll-reveal>
+
+  <div class="article-inner">
+    
+    <header class="article-header">
+       
+<h2 itemprop="name">
+  <a class="article-title" href="/2020/01/02/TCP%E5%92%8CUDP%E8%AF%A6%E8%A7%A3/"
+    >TCP和UDP详解</a
+  >
+</h2>
+  
+
+    </header>
+    
+
+    
+    <div class="article-meta">
+      <a href="/2020/01/02/TCP%E5%92%8CUDP%E8%AF%A6%E8%A7%A3/" class="article-date">
+  <time datetime="2020-01-02T02:48:23.768Z" itemprop="datePublished">2020-01-02</time>
+</a>
+      
+    </div>
+    
+
+    
+
+    <div class="article-entry" itemprop="articleBody">
+      
+
+
+      
+
+      
+      <h2 id="1-TCP和UDP的优点"><a href="#1-TCP和UDP的优点" class="headerlink" title="1.TCP和UDP的优点"></a>1.TCP和UDP的优点</h2><p><strong>TCP的优点：</strong> 可靠，稳定 TCP的可靠体现在TCP在传递数据之前，会有三次握手来建立连接，而且在数据传递时，有确认、窗口、重传、拥塞控制机制，在数据传完后，还会断开连接用来节约系统资源。 TCP的缺点： 慢，效率低，占用系统资源高，易被攻击 TCP在传递数据之前，要先建连接，这会消耗时间，而且在数据传递时，确认机制、重传机制、拥塞控制机制等都会消耗大量的时间，而且要在每台设备上维护所有的传输连接，事实上，每个连接都会占用系统的CPU、内存等硬件资源。 而且，因为TCP有确认机制、三次握手机制，这些也导致TCP容易被人利用，实现DOS、DDOS、CC等攻击。</p>
+<p><strong>UDP的优点：</strong> 快，比TCP稍安全 UDP没有TCP的握手、确认、窗口、重传、拥塞控制等机制，UDP是一个无状态的传输协议，所以它在传递数据时非常快。没有TCP的这些机制，UDP较TCP被攻击者利用的漏洞就要少一些。但UDP也是无法避免攻击的，比如：UDP Flood攻击…… UDP的缺点： 不可靠，不稳定 因为UDP没有TCP那些可靠的机制，在数据传递时，如果网络质量不好，就会很容易丢包。 基于上面的优缺点，那么： 什么时候应该使用TCP： 当对网络通讯质量有要求的时候，比如：整个数据要准确无误的传递给对方，这往往用于一些要求可靠的应用，比如HTTP、HTTPS、FTP等传输文件的协议，POP、SMTP等邮件传输的协议。 在日常生活中，常见使用TCP协议的应用如下： 浏览器，用的HTTP FlashFXP，用的FTP Outlook，用的POP、SMTP Putty，用的Telnet、SSH QQ文件传输 ………… 什么时候应该使用UDP： 当对网络通讯质量要求不高的时候，要求网络通讯速度能尽量的快，这时就可以使用UDP。 比如，日常生活中，常见使用UDP协议的应用如下： QQ语音 QQ视频 TFTP ……</p>
+<h2 id="2-TCP和UDP区别"><a href="#2-TCP和UDP区别" class="headerlink" title="2.TCP和UDP区别"></a>2.TCP和UDP区别</h2><p>1、TCP面向连接（如打电话要先拨号建立连接）;UDP是无连接的，即发送数据之前不需要建立连接</p>
+<p>2、TCP提供可靠的服务。也就是说，通过TCP连接传送的数据，无差错，不丢失，不重复，且按序到达;UDP尽最大努力交付，即不保证可靠交付</p>
+<p>3、TCP面向字节流，实际上是TCP把数据看成一连串无结构的字节流;UDP是面向报文的</p>
+<p>UDP没有拥塞控制，因此网络出现拥塞不会使源主机的发送速率降低（对实时应用很有用，如IP电话，实时视频会议等）</p>
+<p>4、每一条TCP连接只能是点到点的;UDP支持一对一，一对多，多对一和多对多的交互通信</p>
+<p>5、TCP首部开销20字节;UDP的首部开销小，只有8个字节<br>6、TCP的逻辑通信信道是全双工的可靠信道，UDP则是不可靠信道</p>
+<p>补充：TCP和UDP是OSI模型中的<strong>运输层</strong>中的协议。TCP提供可靠的通信传输，而UDP则常被用于让广播和细节控制交给应用的通信传输。</p>
+
+      
+      <!-- 打赏 -->
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2020/01/02/TCP%E5%92%8CUDP%E8%AF%A6%E8%A7%A3/" data-id="ck4w4ue4u0003f4u4fbjm462g"
+        class="article-share-link">分享</a>
+      
+    </footer>
+
+  </div>
+
+  
+
+  
+  
+  
+
+  
+
+</article>
+    
+    <article id="post-Java生成QRcode二维码" class="article article-type-post" itemscope
+  itemprop="blogPost" data-scroll-reveal>
+
+  <div class="article-inner">
+    
+    <header class="article-header">
+       
+<h2 itemprop="name">
+  <a class="article-title" href="/2020/01/02/Java%E7%94%9F%E6%88%90QRcode%E4%BA%8C%E7%BB%B4%E7%A0%81/"
+    >Java生成QRcode二维码</a
+  >
+</h2>
+  
+
+    </header>
+    
+
+    
+    <div class="article-meta">
+      <a href="/2020/01/02/Java%E7%94%9F%E6%88%90QRcode%E4%BA%8C%E7%BB%B4%E7%A0%81/" class="article-date">
+  <time datetime="2020-01-02T02:48:12.859Z" itemprop="datePublished">2020-01-02</time>
+</a>
+      
+    </div>
+    
+
+    
+
+    <div class="article-entry" itemprop="articleBody">
+      
+
+
+      
+
+      
+      <h2 id="三大国际标准："><a href="#三大国际标准：" class="headerlink" title="三大国际标准："></a>三大国际标准：</h2><ul>
+<li>PDF417：不支持中文；</li>
+<li>DM：专利未公开，需要付费；</li>
+<li>QR code：专利公开，支持中文<br> QR code优点：识别速度快、数据密度大、占用空间小</li>
+</ul>
+<h2 id="生成二维码的办法："><a href="#生成二维码的办法：" class="headerlink" title="生成二维码的办法："></a>生成二维码的办法：</h2><ul>
+<li>借助第三方jar：zxing（谷歌研发）和QRcode.jar</li>
+<li>JavaScript，jQuery.qrcode.js<br>生成：<a href="http://www.swetake" target="_blank" rel="noopener">http://www.swetake</a> .com/qrcode/index-e.html<br>读取：<a href="https://osdn.jp/projects/qrcode/" target="_blank" rel="noopener">https://osdn.jp/projects/qrcode/</a></li>
+</ul>
+<h2 id="生成qrcode二维码步骤："><a href="#生成qrcode二维码步骤：" class="headerlink" title="生成qrcode二维码步骤："></a>生成qrcode二维码步骤：</h2><ul>
+<li><p><strong>生成原理</strong>：矩阵式二维条码（又称棋盘式二维条码）它是在一个矩形空间通过黑、白像素在矩阵中的不同分布进行编码。在矩阵相应元素位置上，用点（方点、圆点或其他形状）的出现表示二进制“1”，点的不出现表示二进制的“0”，点的排列组合确定了矩阵式二维条码所代表的意义。矩阵式二维条码是建立在计算机图像处理技术、组合编码原理等基础上的一种新型图形符号自动识读处理码制。<br><strong>涉及到的参数</strong>：qrcode纠错等级、qrcode版本号、qrcode编码、内容、偏移量（不加的话会导致解析出错）、二维码背景颜色</p>
+</li>
+<li><p><strong>解析原理</strong>：获取到生成文件，读取文件里的内容，用qrcode将文件内容进行解析</p>
+</li>
+</ul>
+<p>完整实现代码及所需生成和读取jar包见地址：<a href="https://github.com/xulejun/QRcode.git" target="_blank" rel="noopener">https://github.com/xulejun/QRcode.git</a></p>
+
+      
+      <!-- 打赏 -->
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2020/01/02/Java%E7%94%9F%E6%88%90QRcode%E4%BA%8C%E7%BB%B4%E7%A0%81/" data-id="ck4w4ue4e0002f4u49gcvgce6"
+        class="article-share-link">分享</a>
+      
+    </footer>
+
+  </div>
+
+  
+
+  
+  
+  
+
+  
+
+</article>
+    
     <article id="post-odoo开发——考勤系统（钉钉同步数据）" class="article article-type-post" itemscope
   itemprop="blogPost" data-scroll-reveal>
 
@@ -394,221 +738,14 @@
 
 </article>
     
-    <article id="post-动态图文超详解十大排序算法" class="article article-type-post" itemscope
-  itemprop="blogPost" data-scroll-reveal>
-
-  <div class="article-inner">
-    
-    <header class="article-header">
-       
-<h2 itemprop="name">
-  <a class="article-title" href="/2019/12/22/%E5%8A%A8%E6%80%81%E5%9B%BE%E6%96%87%E8%B6%85%E8%AF%A6%E8%A7%A3%E5%8D%81%E5%A4%A7%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95/"
-    >动态图文超详解十大排序算法</a
-  >
-</h2>
-  
-
-    </header>
-    
-
-    
-    <div class="article-meta">
-      <a href="/2019/12/22/%E5%8A%A8%E6%80%81%E5%9B%BE%E6%96%87%E8%B6%85%E8%AF%A6%E8%A7%A3%E5%8D%81%E5%A4%A7%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95/" class="article-date">
-  <time datetime="2019-12-22T14:14:29.121Z" itemprop="datePublished">2019-12-22</time>
-</a>
-      
-    </div>
-    
-
-    
-
-    <div class="article-entry" itemprop="articleBody">
-      
-
-
-      
-
-      
-      <h1 id="超级详细动图详解十大排序算法"><a href="#超级详细动图详解十大排序算法" class="headerlink" title="超级详细动图详解十大排序算法"></a>超级详细动图详解十大排序算法</h1><p><img src="https://img-blog.csdnimg.cn/20191010163824783.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80Mzg0Mjg1Mw==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br>动图详解见地址：<a href="https://www.jianshu.com/p/47170b1ced23" target="_blank" rel="noopener">https://www.jianshu.com/p/47170b1ced23</a></p>
-
-      
-      <!-- 打赏 -->
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/12/22/%E5%8A%A8%E6%80%81%E5%9B%BE%E6%96%87%E8%B6%85%E8%AF%A6%E8%A7%A3%E5%8D%81%E5%A4%A7%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95/" data-id="ck4h3hfg30000rgu4dxiedckq"
-        class="article-share-link">分享</a>
-      
-    </footer>
-
-  </div>
-
-  
-
-  
-  
-  
-
-  
-
-</article>
-    
-    <article id="post-完整图文配置Java环境变量" class="article article-type-post" itemscope
-  itemprop="blogPost" data-scroll-reveal>
-
-  <div class="article-inner">
-    
-    <header class="article-header">
-       
-<h2 itemprop="name">
-  <a class="article-title" href="/2019/12/22/%E5%AE%8C%E6%95%B4%E5%9B%BE%E6%96%87%E9%85%8D%E7%BD%AEJava%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F/"
-    >完整图文配置Java环境变量</a
-  >
-</h2>
-  
-
-    </header>
-    
-
-    
-    <div class="article-meta">
-      <a href="/2019/12/22/%E5%AE%8C%E6%95%B4%E5%9B%BE%E6%96%87%E9%85%8D%E7%BD%AEJava%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F/" class="article-date">
-  <time datetime="2019-12-22T14:13:40.851Z" itemprop="datePublished">2019-12-22</time>
-</a>
-      
-    </div>
-    
-
-    
-
-    <div class="article-entry" itemprop="articleBody">
-      
-
-
-      
-
-      
-      <h1 id="完整图文配置Java环境变量"><a href="#完整图文配置Java环境变量" class="headerlink" title="完整图文配置Java环境变量"></a>完整图文配置Java环境变量</h1><ul>
-<li>右击桌面图标“此电脑”</li>
-<li>选择“管理”，出现以下界面</li>
-<li>选择界面上高级系统设置<br><img src="https://img-blog.csdnimg.cn/20190927162406876.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80Mzg0Mjg1Mw==,size_16,color_FFFFFF,t_70" alt="如下图"></li>
-<li>选择界面的“环境变量”<br><img src="https://img-blog.csdnimg.cn/20190927162616957.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80Mzg0Mjg1Mw==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></li>
-<li>点击“新建”<br><img src="https://img-blog.csdnimg.cn/20190927162921408.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80Mzg0Mjg1Mw==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></li>
-<li><em>1.配置PATH路径*</em></li>
-<li>变量名：“PATH”</li>
-<li>变量值选择“浏览目录”；</li>
-<li>选择安装jdk下的bin目录<br><img src="https://img-blog.csdnimg.cn/20190927163753188.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80Mzg0Mjg1Mw==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></li>
-<li><em>2.配置JAVA_HOME*</em></li>
-<li>变量名：“JAVA_HOME”</li>
-<li>变量值选择“浏览目录”；</li>
-<li>选择安装的jdk目录<br><img src="https://img-blog.csdnimg.cn/20190927164404697.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80Mzg0Mjg1Mw==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></li>
-<li><em>3.配置CLASSPATH*</em></li>
-<li>变量名：“CLASSPATH”</li>
-<li>变量值：“.;E:jdk-10.0.2;”</li>
-<li>路径为java下的jdk所有文件目录（将路径更改，格式为“.;路径;”）<br><img src="https://img-blog.csdnimg.cn/20190927164751875.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80Mzg0Mjg1Mw==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></li>
-<li><em>4.检查配置*</em></li>
-<li>快捷键windows/Command + R，输入cmd；</li>
-<li>进入dos窗口，输入javac，回车出现以下画面； <img src="https://img-blog.csdnimg.cn/20190927170309169.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80Mzg0Mjg1Mw==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></li>
-<li>输入java -version，回车出现以下画面</li>
-<li><img src="https://img-blog.csdnimg.cn/20190927170455205.png" alt="在这里插入图片描述"></li>
-<li>恭喜，配置成功</li>
-</ul>
-
-      
-      <!-- 打赏 -->
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/12/22/%E5%AE%8C%E6%95%B4%E5%9B%BE%E6%96%87%E9%85%8D%E7%BD%AEJava%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F/" data-id="ck4h3hfgt0003rgu4g15bhc6h"
-        class="article-share-link">分享</a>
-      
-    </footer>
-
-  </div>
-
-  
-
-  
-  
-  
-
-  
-
-</article>
-    
-    <article id="post-新手上传本地项目到github" class="article article-type-post" itemscope
-  itemprop="blogPost" data-scroll-reveal>
-
-  <div class="article-inner">
-    
-    <header class="article-header">
-       
-<h2 itemprop="name">
-  <a class="article-title" href="/2019/12/22/%E6%96%B0%E6%89%8B%E4%B8%8A%E4%BC%A0%E6%9C%AC%E5%9C%B0%E9%A1%B9%E7%9B%AE%E5%88%B0github/"
-    >新手上传本地项目到github</a
-  >
-</h2>
-  
-
-    </header>
-    
-
-    
-    <div class="article-meta">
-      <a href="/2019/12/22/%E6%96%B0%E6%89%8B%E4%B8%8A%E4%BC%A0%E6%9C%AC%E5%9C%B0%E9%A1%B9%E7%9B%AE%E5%88%B0github/" class="article-date">
-  <time datetime="2019-12-22T05:10:28.198Z" itemprop="datePublished">2019-12-22</time>
-</a>
-      
-    </div>
-    
-
-    
-
-    <div class="article-entry" itemprop="articleBody">
-      
-
-
-      
-
-      
-      <p>简单说说流程：<br>1.有github账号<br>2.官网下载git，官网下载速度很慢，附上淘宝镜像下载地址：<br><a href="https://npm.taobao.org/mirrors/git-for-windows/v2.23.0.windows.1/" target="_blank" rel="noopener">https://npm.taobao.org/mirrors/git-for-windows/v2.23.0.windows.1/</a><br>3.安装git，如若没有个人特殊要求，一直默认就好了<br>4.创建github里的仓库repository<br>5.通过git将本地文件上传到repository</p>
-<ul>
-<li>打开安装好的git bash</li>
-<li>cd进入你放项目文件的地址</li>
-<li>输入git init（当前项目的目录中生成本地的git管理）</li>
-<li>输入git add . （注意后面有个点<strong>.</strong>）</li>
-<li>输入 git commit -m “first commit”</li>
-<li>输入自己的账号或名字（按照上面的代码，加上自己github的账号或者邮箱）</li>
-<li>再输入git commit -m “first commit”时就会成功</li>
-<li>接着输入git remote add origin https://自己的仓库url地址</li>
-<li>最后一步，输入git push -u origin master（代码上传到github仓库）<br>附上完整图文地址<br><a href="https://blog.csdn.net/m0_37725003/article/details/80904824" target="_blank" rel="noopener">https://blog.csdn.net/m0_37725003/article/details/80904824</a></li>
-</ul>
-
-      
-      <!-- 打赏 -->
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/12/22/%E6%96%B0%E6%89%8B%E4%B8%8A%E4%BC%A0%E6%9C%AC%E5%9C%B0%E9%A1%B9%E7%9B%AE%E5%88%B0github/" data-id="ck4gjzoff0000vou4hqrzchft"
-        class="article-share-link">分享</a>
-      
-    </footer>
-
-  </div>
-
-  
-
-  
-  
-  
-
-  
-
-</article>
-    
   </article>
   
 
+  
+  <nav class="page-nav">
+    
+    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/">下一页</a>
+  </nav>
   
 </section>
 </div>
@@ -618,7 +755,7 @@
     <ul class="list-inline">
       <li>
         &copy;
-        2015-2019
+        2015-2020
         John Doe
       </li>
       <li>

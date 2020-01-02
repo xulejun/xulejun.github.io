@@ -6,7 +6,7 @@
     
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
   <title>
-    如何在github上添加密钥 |  Welcome to XuLeJun&#39;s blog
+    String、Stringbuffer与Stringbuilder的区别 |  Welcome to XuLeJun&#39;s blog
   </title>
   
   <link rel="shortcut icon" href="/favicon.ico" />
@@ -31,7 +31,7 @@
   <div id="app">
     <main class="content">
       <section class="outer">
-  <article id="post-如何在github上添加密钥" class="article article-type-post" itemscope
+  <article id="post-String、Stringbuffer与Stringbuilder的区别" class="article article-type-post" itemscope
   itemprop="blogPost" data-scroll-reveal>
 
   <div class="article-inner">
@@ -39,7 +39,7 @@
     <header class="article-header">
        
 <h1 class="article-title sea-center" style="border-left:0" itemprop="name">
-  如何在github上添加密钥
+  String、Stringbuffer与Stringbuilder的区别
 </h1>
   
 
@@ -48,8 +48,8 @@
 
     
     <div class="article-meta">
-      <a href="/2019/12/24/%E5%A6%82%E4%BD%95%E5%9C%A8github%E4%B8%8A%E6%B7%BB%E5%8A%A0%E5%AF%86%E9%92%A5/" class="article-date">
-  <time datetime="2019-12-24T04:58:54.334Z" itemprop="datePublished">2019-12-24</time>
+      <a href="/2020/01/02/String%E3%80%81Stringbuffer%E4%B8%8EStringbuilder%E7%9A%84%E5%8C%BA%E5%88%AB/" class="article-date">
+  <time datetime="2020-01-02T02:48:34.213Z" itemprop="datePublished">2020-01-02</time>
 </a>
       
     </div>
@@ -57,6 +57,8 @@
 
     
     
+    <div class="tocbot"></div>
+
 
 
 
@@ -70,13 +72,11 @@
       
 
       
-      <p><strong>首先得在本地安装好git，有github账号</strong><br>1.本地安装好git；</p>
-<p>2.桌面右键 Git Bash Here 打开git命令行；</p>
-<p>3.ssh-keygen -t rsa -C “<a href="mailto:nideyouxiang@xxx.com">nideyouxiang@xxx.com</a>“   （全部按enter，后面为github所填邮箱）；</p>
-<p>4.cd ~/.ssh   （如果没有执行第三步，则不会有这个文件夹；一般在此处能找到该文件C:\Users\Administrator.ssh）；</p>
-<p>5.cat id_rsa.pub     在命令行打开这个文件，会直接输出密钥；</p>
-<p>6.复制该密钥，打开github ，点自己头像 &gt;&gt; settings &gt;&gt; SSH and GPG keys &gt;&gt;New SSH key </p>
-<p>7.titile（可随便填写，例如SSHkey）；key里粘贴第六步的内容，完成密钥配置。</p>
+      <h2 id="运行速度："><a href="#运行速度：" class="headerlink" title="运行速度："></a>运行速度：</h2><p>运行速度，或者说是执行速度，在这方面运行速度快慢为：StringBuilder &gt; StringBuffer &gt; String</p>
+<p>String最慢的原因：String为字符串常量，而StringBuilder和StringBuffer均为字符串变量，即String对象一旦创建之后该对象是不可更改的，但后两者的对象是变量，是可以更改的。</p>
+<h2 id="线程安全："><a href="#线程安全：" class="headerlink" title="线程安全："></a>线程安全：</h2><p>在线程安全上，StringBuilder是线程不安全的，而StringBuffer是线程安全的</p>
+<p>如果一个StringBuffer对象在字符串缓冲区被多个线程使用时，StringBuffer中很多方法可以带有synchronized关键字，所以可以保证线程是安全的，但StringBuilder的方法则没有该关键字，所以不能保证线程安全，有可能会出现一些错误的操作。所以如果要进行的操作是多线程的，那么就要使用StringBuffer，但是在单线程的情况下，还是建议使用速度比较快的StringBuilder。</p>
+<h2 id="总结："><a href="#总结：" class="headerlink" title="总结："></a>总结：</h2><p>1）如果操作少量的数据用String<br>2）单线程下操作大量的数据用StringBuilder<br>3）多线程下操作大量的数据用StringBuffer</p>
 
       
       <!-- 打赏 -->
@@ -87,7 +87,7 @@
         
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/12/24/%E5%A6%82%E4%BD%95%E5%9C%A8github%E4%B8%8A%E6%B7%BB%E5%8A%A0%E5%AF%86%E9%92%A5/" data-id="ck4jehlzc0000mwu443ou9yqh"
+      <a data-url="http://yoursite.com/2020/01/02/String%E3%80%81Stringbuffer%E4%B8%8EStringbuilder%E7%9A%84%E5%8C%BA%E5%88%AB/" data-id="ck4w4ue4w0004f4u48yul9gip"
         class="article-share-link">分享</a>
       
     </footer>
@@ -98,19 +98,19 @@
   
   <nav class="article-nav">
     
-      <a href="/2019/12/30/odoo%E5%BC%80%E5%8F%91%E2%80%94%E2%80%94%E8%80%83%E5%8B%A4%E7%B3%BB%E7%BB%9F%EF%BC%88%E9%92%89%E9%92%89%E5%90%8C%E6%AD%A5%E6%95%B0%E6%8D%AE%EF%BC%89/" class="article-nav-link">
+      <a href="/2020/01/02/Java%E6%8A%BD%E8%B1%A1%E7%B1%BB%E5%92%8C%E6%8E%A5%E5%8F%A3%E7%9A%84%E5%8C%BA%E5%88%AB/" class="article-nav-link">
         <strong class="article-nav-caption">上一篇</strong>
         <div class="article-nav-title">
           
-            odoo开发——考勤系统（钉钉同步数据）
+            Java抽象类和接口的区别
           
         </div>
       </a>
     
     
-      <a href="/2019/12/22/Odoo%E5%BC%80%E5%8F%91%E2%80%94%E2%80%94%E5%AE%8C%E6%95%B4%E8%AF%B7%E5%81%87%E7%B3%BB%E7%BB%9F%E5%8A%9F%E8%83%BD%E9%9C%80%E6%B1%82%E5%8F%8A%E6%BA%90%E7%A0%81/" class="article-nav-link">
+      <a href="/2020/01/02/TCP%E5%92%8CUDP%E8%AF%A6%E8%A7%A3/" class="article-nav-link">
         <strong class="article-nav-caption">下一篇</strong>
-        <div class="article-nav-title">Odoo开发——完整请假系统功能需求及源码</div>
+        <div class="article-nav-title">TCP和UDP详解</div>
       </a>
     
   </nav>

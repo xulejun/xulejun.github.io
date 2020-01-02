@@ -6,7 +6,7 @@
     
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
   <title>
-    如何在github上添加密钥 |  Welcome to XuLeJun&#39;s blog
+    Java生成QRcode二维码 |  Welcome to XuLeJun&#39;s blog
   </title>
   
   <link rel="shortcut icon" href="/favicon.ico" />
@@ -31,7 +31,7 @@
   <div id="app">
     <main class="content">
       <section class="outer">
-  <article id="post-如何在github上添加密钥" class="article article-type-post" itemscope
+  <article id="post-Java生成QRcode二维码" class="article article-type-post" itemscope
   itemprop="blogPost" data-scroll-reveal>
 
   <div class="article-inner">
@@ -39,7 +39,7 @@
     <header class="article-header">
        
 <h1 class="article-title sea-center" style="border-left:0" itemprop="name">
-  如何在github上添加密钥
+  Java生成QRcode二维码
 </h1>
   
 
@@ -48,8 +48,8 @@
 
     
     <div class="article-meta">
-      <a href="/2019/12/24/%E5%A6%82%E4%BD%95%E5%9C%A8github%E4%B8%8A%E6%B7%BB%E5%8A%A0%E5%AF%86%E9%92%A5/" class="article-date">
-  <time datetime="2019-12-24T04:58:54.334Z" itemprop="datePublished">2019-12-24</time>
+      <a href="/2020/01/02/Java%E7%94%9F%E6%88%90QRcode%E4%BA%8C%E7%BB%B4%E7%A0%81/" class="article-date">
+  <time datetime="2020-01-02T02:48:12.859Z" itemprop="datePublished">2020-01-02</time>
 </a>
       
     </div>
@@ -57,6 +57,8 @@
 
     
     
+    <div class="tocbot"></div>
+
 
 
 
@@ -70,13 +72,22 @@
       
 
       
-      <p><strong>首先得在本地安装好git，有github账号</strong><br>1.本地安装好git；</p>
-<p>2.桌面右键 Git Bash Here 打开git命令行；</p>
-<p>3.ssh-keygen -t rsa -C “<a href="mailto:nideyouxiang@xxx.com">nideyouxiang@xxx.com</a>“   （全部按enter，后面为github所填邮箱）；</p>
-<p>4.cd ~/.ssh   （如果没有执行第三步，则不会有这个文件夹；一般在此处能找到该文件C:\Users\Administrator.ssh）；</p>
-<p>5.cat id_rsa.pub     在命令行打开这个文件，会直接输出密钥；</p>
-<p>6.复制该密钥，打开github ，点自己头像 &gt;&gt; settings &gt;&gt; SSH and GPG keys &gt;&gt;New SSH key </p>
-<p>7.titile（可随便填写，例如SSHkey）；key里粘贴第六步的内容，完成密钥配置。</p>
+      <h2 id="三大国际标准："><a href="#三大国际标准：" class="headerlink" title="三大国际标准："></a>三大国际标准：</h2><ul>
+<li>PDF417：不支持中文；</li>
+<li>DM：专利未公开，需要付费；</li>
+<li>QR code：专利公开，支持中文<br> QR code优点：识别速度快、数据密度大、占用空间小</li>
+</ul>
+<h2 id="生成二维码的办法："><a href="#生成二维码的办法：" class="headerlink" title="生成二维码的办法："></a>生成二维码的办法：</h2><ul>
+<li>借助第三方jar：zxing（谷歌研发）和QRcode.jar</li>
+<li>JavaScript，jQuery.qrcode.js<br>生成：<a href="http://www.swetake" target="_blank" rel="noopener">http://www.swetake</a> .com/qrcode/index-e.html<br>读取：<a href="https://osdn.jp/projects/qrcode/" target="_blank" rel="noopener">https://osdn.jp/projects/qrcode/</a></li>
+</ul>
+<h2 id="生成qrcode二维码步骤："><a href="#生成qrcode二维码步骤：" class="headerlink" title="生成qrcode二维码步骤："></a>生成qrcode二维码步骤：</h2><ul>
+<li><p><strong>生成原理</strong>：矩阵式二维条码（又称棋盘式二维条码）它是在一个矩形空间通过黑、白像素在矩阵中的不同分布进行编码。在矩阵相应元素位置上，用点（方点、圆点或其他形状）的出现表示二进制“1”，点的不出现表示二进制的“0”，点的排列组合确定了矩阵式二维条码所代表的意义。矩阵式二维条码是建立在计算机图像处理技术、组合编码原理等基础上的一种新型图形符号自动识读处理码制。<br><strong>涉及到的参数</strong>：qrcode纠错等级、qrcode版本号、qrcode编码、内容、偏移量（不加的话会导致解析出错）、二维码背景颜色</p>
+</li>
+<li><p><strong>解析原理</strong>：获取到生成文件，读取文件里的内容，用qrcode将文件内容进行解析</p>
+</li>
+</ul>
+<p>完整实现代码及所需生成和读取jar包见地址：<a href="https://github.com/xulejun/QRcode.git" target="_blank" rel="noopener">https://github.com/xulejun/QRcode.git</a></p>
 
       
       <!-- 打赏 -->
@@ -87,7 +98,7 @@
         
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/12/24/%E5%A6%82%E4%BD%95%E5%9C%A8github%E4%B8%8A%E6%B7%BB%E5%8A%A0%E5%AF%86%E9%92%A5/" data-id="ck4jehlzc0000mwu443ou9yqh"
+      <a data-url="http://yoursite.com/2020/01/02/Java%E7%94%9F%E6%88%90QRcode%E4%BA%8C%E7%BB%B4%E7%A0%81/" data-id="ck4w4ue4e0002f4u49gcvgce6"
         class="article-share-link">分享</a>
       
     </footer>
@@ -98,19 +109,19 @@
   
   <nav class="article-nav">
     
-      <a href="/2019/12/30/odoo%E5%BC%80%E5%8F%91%E2%80%94%E2%80%94%E8%80%83%E5%8B%A4%E7%B3%BB%E7%BB%9F%EF%BC%88%E9%92%89%E9%92%89%E5%90%8C%E6%AD%A5%E6%95%B0%E6%8D%AE%EF%BC%89/" class="article-nav-link">
+      <a href="/2020/01/02/TCP%E5%92%8CUDP%E8%AF%A6%E8%A7%A3/" class="article-nav-link">
         <strong class="article-nav-caption">上一篇</strong>
         <div class="article-nav-title">
           
-            odoo开发——考勤系统（钉钉同步数据）
+            TCP和UDP详解
           
         </div>
       </a>
     
     
-      <a href="/2019/12/22/Odoo%E5%BC%80%E5%8F%91%E2%80%94%E2%80%94%E5%AE%8C%E6%95%B4%E8%AF%B7%E5%81%87%E7%B3%BB%E7%BB%9F%E5%8A%9F%E8%83%BD%E9%9C%80%E6%B1%82%E5%8F%8A%E6%BA%90%E7%A0%81/" class="article-nav-link">
+      <a href="/2019/12/30/odoo%E5%BC%80%E5%8F%91%E2%80%94%E2%80%94%E8%80%83%E5%8B%A4%E7%B3%BB%E7%BB%9F%EF%BC%88%E9%92%89%E9%92%89%E5%90%8C%E6%AD%A5%E6%95%B0%E6%8D%AE%EF%BC%89/" class="article-nav-link">
         <strong class="article-nav-caption">下一篇</strong>
-        <div class="article-nav-title">Odoo开发——完整请假系统功能需求及源码</div>
+        <div class="article-nav-title">odoo开发——考勤系统（钉钉同步数据）</div>
       </a>
     
   </nav>

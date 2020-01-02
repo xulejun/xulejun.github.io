@@ -6,7 +6,7 @@
     
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
   <title>
-    如何在github上添加密钥 |  Welcome to XuLeJun&#39;s blog
+    Java中super和this的区别 |  Welcome to XuLeJun&#39;s blog
   </title>
   
   <link rel="shortcut icon" href="/favicon.ico" />
@@ -31,7 +31,7 @@
   <div id="app">
     <main class="content">
       <section class="outer">
-  <article id="post-如何在github上添加密钥" class="article article-type-post" itemscope
+  <article id="post-Java中super和this的区别" class="article article-type-post" itemscope
   itemprop="blogPost" data-scroll-reveal>
 
   <div class="article-inner">
@@ -39,7 +39,7 @@
     <header class="article-header">
        
 <h1 class="article-title sea-center" style="border-left:0" itemprop="name">
-  如何在github上添加密钥
+  Java中super和this的区别
 </h1>
   
 
@@ -48,8 +48,8 @@
 
     
     <div class="article-meta">
-      <a href="/2019/12/24/%E5%A6%82%E4%BD%95%E5%9C%A8github%E4%B8%8A%E6%B7%BB%E5%8A%A0%E5%AF%86%E9%92%A5/" class="article-date">
-  <time datetime="2019-12-24T04:58:54.334Z" itemprop="datePublished">2019-12-24</time>
+      <a href="/2020/01/02/Java%E4%B8%ADsuper%E5%92%8Cthis%E7%9A%84%E5%8C%BA%E5%88%AB/" class="article-date">
+  <time datetime="2020-01-02T02:50:07.536Z" itemprop="datePublished">2020-01-02</time>
 </a>
       
     </div>
@@ -57,6 +57,8 @@
 
     
     
+    <div class="tocbot"></div>
+
 
 
 
@@ -70,14 +72,27 @@
       
 
       
-      <p><strong>首先得在本地安装好git，有github账号</strong><br>1.本地安装好git；</p>
-<p>2.桌面右键 Git Bash Here 打开git命令行；</p>
-<p>3.ssh-keygen -t rsa -C “<a href="mailto:nideyouxiang@xxx.com">nideyouxiang@xxx.com</a>“   （全部按enter，后面为github所填邮箱）；</p>
-<p>4.cd ~/.ssh   （如果没有执行第三步，则不会有这个文件夹；一般在此处能找到该文件C:\Users\Administrator.ssh）；</p>
-<p>5.cat id_rsa.pub     在命令行打开这个文件，会直接输出密钥；</p>
-<p>6.复制该密钥，打开github ，点自己头像 &gt;&gt; settings &gt;&gt; SSH and GPG keys &gt;&gt;New SSH key </p>
-<p>7.titile（可随便填写，例如SSHkey）；key里粘贴第六步的内容，完成密钥配置。</p>
+      <h2 id="本质区别："><a href="#本质区别：" class="headerlink" title="本质区别："></a>本质区别：</h2><p>1、super（参数）：调用基类中的另一个构造函数（应该为构造函数的第一条语句）</p>
+<p>2、this（参数）：调用本类中另一种形式的构造函数（应该为构造函数的第一条语句）</p>
+<p>3、super：它引用当前对象的直接父类中的成员（用来访问直接父类中被隐藏的父类中成员数据或函数，基类与派生类中有相同成员定义时：super.变量名，super.成员函数数据名（实参））</p>
+<p>4、this：它代表当前对象名（在程序中易产生二义性之处，应使用this来指明当前对象；如果函数的形参与类中的成员数据同名，这时需用this来指明成员变量名）</p>
+<p>5、调用super()必须写在子类构造方法的第一行，否则编译不通过。每个子类构造方法的第一条语句，都是隐含地调用super()，如果父类没有这种形式的构造函数，那么在遍历的时候就会报错</p>
+<p>6、super()和this()类似，区别是，super()从子类中调用父类的构造方法，this()在同一类内调用其它方法</p>
+<p>7、super()和this()均需放在构造方法内第一行</p>
+<p>8、尽管可以用this调用一个构造器，但却不能调用两个</p>
+<p>9、this和super不能同时出现在一个构造函数里面，因为this必然会调用其它的构造函数，其它的构造函数必然也会有super语句的存在，所以在同一个构造函数里面有相同的语句，就失去了语句的意义，编译器也不会通过</p>
+<p>10、this()和super()都指的是对象，所以，均不可以在static环境中使用。包括static变量、static方法、static语句块</p>
+<p>11、从本质上讲，this是一个指向本对象的指针，然而super是一个Java关键字</p>
+<p> (1.)代表的事物不同</p>
+<pre><code>super代表的是父类空间的引用
 
+this代表的是所属函数的调用者对象</code></pre><p>(2.)使用前提不同</p>
+<pre><code>super必须要有继承关系才能使用
+
+this不需要继承关系也能使用</code></pre><p>(3.)调用的构造函数不同</p>
+<pre><code>super：调用父类的构造函数
+
+this：调用所属类的构造函数</code></pre>
       
       <!-- 打赏 -->
       
@@ -87,7 +102,7 @@
         
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/12/24/%E5%A6%82%E4%BD%95%E5%9C%A8github%E4%B8%8A%E6%B7%BB%E5%8A%A0%E5%AF%86%E9%92%A5/" data-id="ck4jehlzc0000mwu443ou9yqh"
+      <a data-url="http://yoursite.com/2020/01/02/Java%E4%B8%ADsuper%E5%92%8Cthis%E7%9A%84%E5%8C%BA%E5%88%AB/" data-id="ck4w4ue3n0000f4u43zqjcxc3"
         class="article-share-link">分享</a>
       
     </footer>
@@ -98,19 +113,10 @@
   
   <nav class="article-nav">
     
-      <a href="/2019/12/30/odoo%E5%BC%80%E5%8F%91%E2%80%94%E2%80%94%E8%80%83%E5%8B%A4%E7%B3%BB%E7%BB%9F%EF%BC%88%E9%92%89%E9%92%89%E5%90%8C%E6%AD%A5%E6%95%B0%E6%8D%AE%EF%BC%89/" class="article-nav-link">
-        <strong class="article-nav-caption">上一篇</strong>
-        <div class="article-nav-title">
-          
-            odoo开发——考勤系统（钉钉同步数据）
-          
-        </div>
-      </a>
     
-    
-      <a href="/2019/12/22/Odoo%E5%BC%80%E5%8F%91%E2%80%94%E2%80%94%E5%AE%8C%E6%95%B4%E8%AF%B7%E5%81%87%E7%B3%BB%E7%BB%9F%E5%8A%9F%E8%83%BD%E9%9C%80%E6%B1%82%E5%8F%8A%E6%BA%90%E7%A0%81/" class="article-nav-link">
+      <a href="/2020/01/02/Java%E6%8A%BD%E8%B1%A1%E7%B1%BB%E5%92%8C%E6%8E%A5%E5%8F%A3%E7%9A%84%E5%8C%BA%E5%88%AB/" class="article-nav-link">
         <strong class="article-nav-caption">下一篇</strong>
-        <div class="article-nav-title">Odoo开发——完整请假系统功能需求及源码</div>
+        <div class="article-nav-title">Java抽象类和接口的区别</div>
       </a>
     
   </nav>

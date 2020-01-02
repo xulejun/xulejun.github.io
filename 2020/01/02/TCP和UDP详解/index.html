@@ -6,7 +6,7 @@
     
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
   <title>
-    如何在github上添加密钥 |  Welcome to XuLeJun&#39;s blog
+    TCP和UDP详解 |  Welcome to XuLeJun&#39;s blog
   </title>
   
   <link rel="shortcut icon" href="/favicon.ico" />
@@ -31,7 +31,7 @@
   <div id="app">
     <main class="content">
       <section class="outer">
-  <article id="post-如何在github上添加密钥" class="article article-type-post" itemscope
+  <article id="post-TCP和UDP详解" class="article article-type-post" itemscope
   itemprop="blogPost" data-scroll-reveal>
 
   <div class="article-inner">
@@ -39,7 +39,7 @@
     <header class="article-header">
        
 <h1 class="article-title sea-center" style="border-left:0" itemprop="name">
-  如何在github上添加密钥
+  TCP和UDP详解
 </h1>
   
 
@@ -48,8 +48,8 @@
 
     
     <div class="article-meta">
-      <a href="/2019/12/24/%E5%A6%82%E4%BD%95%E5%9C%A8github%E4%B8%8A%E6%B7%BB%E5%8A%A0%E5%AF%86%E9%92%A5/" class="article-date">
-  <time datetime="2019-12-24T04:58:54.334Z" itemprop="datePublished">2019-12-24</time>
+      <a href="/2020/01/02/TCP%E5%92%8CUDP%E8%AF%A6%E8%A7%A3/" class="article-date">
+  <time datetime="2020-01-02T02:48:23.768Z" itemprop="datePublished">2020-01-02</time>
 </a>
       
     </div>
@@ -57,6 +57,8 @@
 
     
     
+    <div class="tocbot"></div>
+
 
 
 
@@ -70,13 +72,15 @@
       
 
       
-      <p><strong>首先得在本地安装好git，有github账号</strong><br>1.本地安装好git；</p>
-<p>2.桌面右键 Git Bash Here 打开git命令行；</p>
-<p>3.ssh-keygen -t rsa -C “<a href="mailto:nideyouxiang@xxx.com">nideyouxiang@xxx.com</a>“   （全部按enter，后面为github所填邮箱）；</p>
-<p>4.cd ~/.ssh   （如果没有执行第三步，则不会有这个文件夹；一般在此处能找到该文件C:\Users\Administrator.ssh）；</p>
-<p>5.cat id_rsa.pub     在命令行打开这个文件，会直接输出密钥；</p>
-<p>6.复制该密钥，打开github ，点自己头像 &gt;&gt; settings &gt;&gt; SSH and GPG keys &gt;&gt;New SSH key </p>
-<p>7.titile（可随便填写，例如SSHkey）；key里粘贴第六步的内容，完成密钥配置。</p>
+      <h2 id="1-TCP和UDP的优点"><a href="#1-TCP和UDP的优点" class="headerlink" title="1.TCP和UDP的优点"></a>1.TCP和UDP的优点</h2><p><strong>TCP的优点：</strong> 可靠，稳定 TCP的可靠体现在TCP在传递数据之前，会有三次握手来建立连接，而且在数据传递时，有确认、窗口、重传、拥塞控制机制，在数据传完后，还会断开连接用来节约系统资源。 TCP的缺点： 慢，效率低，占用系统资源高，易被攻击 TCP在传递数据之前，要先建连接，这会消耗时间，而且在数据传递时，确认机制、重传机制、拥塞控制机制等都会消耗大量的时间，而且要在每台设备上维护所有的传输连接，事实上，每个连接都会占用系统的CPU、内存等硬件资源。 而且，因为TCP有确认机制、三次握手机制，这些也导致TCP容易被人利用，实现DOS、DDOS、CC等攻击。</p>
+<p><strong>UDP的优点：</strong> 快，比TCP稍安全 UDP没有TCP的握手、确认、窗口、重传、拥塞控制等机制，UDP是一个无状态的传输协议，所以它在传递数据时非常快。没有TCP的这些机制，UDP较TCP被攻击者利用的漏洞就要少一些。但UDP也是无法避免攻击的，比如：UDP Flood攻击…… UDP的缺点： 不可靠，不稳定 因为UDP没有TCP那些可靠的机制，在数据传递时，如果网络质量不好，就会很容易丢包。 基于上面的优缺点，那么： 什么时候应该使用TCP： 当对网络通讯质量有要求的时候，比如：整个数据要准确无误的传递给对方，这往往用于一些要求可靠的应用，比如HTTP、HTTPS、FTP等传输文件的协议，POP、SMTP等邮件传输的协议。 在日常生活中，常见使用TCP协议的应用如下： 浏览器，用的HTTP FlashFXP，用的FTP Outlook，用的POP、SMTP Putty，用的Telnet、SSH QQ文件传输 ………… 什么时候应该使用UDP： 当对网络通讯质量要求不高的时候，要求网络通讯速度能尽量的快，这时就可以使用UDP。 比如，日常生活中，常见使用UDP协议的应用如下： QQ语音 QQ视频 TFTP ……</p>
+<h2 id="2-TCP和UDP区别"><a href="#2-TCP和UDP区别" class="headerlink" title="2.TCP和UDP区别"></a>2.TCP和UDP区别</h2><p>1、TCP面向连接（如打电话要先拨号建立连接）;UDP是无连接的，即发送数据之前不需要建立连接</p>
+<p>2、TCP提供可靠的服务。也就是说，通过TCP连接传送的数据，无差错，不丢失，不重复，且按序到达;UDP尽最大努力交付，即不保证可靠交付</p>
+<p>3、TCP面向字节流，实际上是TCP把数据看成一连串无结构的字节流;UDP是面向报文的</p>
+<p>UDP没有拥塞控制，因此网络出现拥塞不会使源主机的发送速率降低（对实时应用很有用，如IP电话，实时视频会议等）</p>
+<p>4、每一条TCP连接只能是点到点的;UDP支持一对一，一对多，多对一和多对多的交互通信</p>
+<p>5、TCP首部开销20字节;UDP的首部开销小，只有8个字节<br>6、TCP的逻辑通信信道是全双工的可靠信道，UDP则是不可靠信道</p>
+<p>补充：TCP和UDP是OSI模型中的<strong>运输层</strong>中的协议。TCP提供可靠的通信传输，而UDP则常被用于让广播和细节控制交给应用的通信传输。</p>
 
       
       <!-- 打赏 -->
@@ -87,7 +91,7 @@
         
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/12/24/%E5%A6%82%E4%BD%95%E5%9C%A8github%E4%B8%8A%E6%B7%BB%E5%8A%A0%E5%AF%86%E9%92%A5/" data-id="ck4jehlzc0000mwu443ou9yqh"
+      <a data-url="http://yoursite.com/2020/01/02/TCP%E5%92%8CUDP%E8%AF%A6%E8%A7%A3/" data-id="ck4w4ue4u0003f4u4fbjm462g"
         class="article-share-link">分享</a>
       
     </footer>
@@ -98,19 +102,19 @@
   
   <nav class="article-nav">
     
-      <a href="/2019/12/30/odoo%E5%BC%80%E5%8F%91%E2%80%94%E2%80%94%E8%80%83%E5%8B%A4%E7%B3%BB%E7%BB%9F%EF%BC%88%E9%92%89%E9%92%89%E5%90%8C%E6%AD%A5%E6%95%B0%E6%8D%AE%EF%BC%89/" class="article-nav-link">
+      <a href="/2020/01/02/String%E3%80%81Stringbuffer%E4%B8%8EStringbuilder%E7%9A%84%E5%8C%BA%E5%88%AB/" class="article-nav-link">
         <strong class="article-nav-caption">上一篇</strong>
         <div class="article-nav-title">
           
-            odoo开发——考勤系统（钉钉同步数据）
+            String、Stringbuffer与Stringbuilder的区别
           
         </div>
       </a>
     
     
-      <a href="/2019/12/22/Odoo%E5%BC%80%E5%8F%91%E2%80%94%E2%80%94%E5%AE%8C%E6%95%B4%E8%AF%B7%E5%81%87%E7%B3%BB%E7%BB%9F%E5%8A%9F%E8%83%BD%E9%9C%80%E6%B1%82%E5%8F%8A%E6%BA%90%E7%A0%81/" class="article-nav-link">
+      <a href="/2020/01/02/Java%E7%94%9F%E6%88%90QRcode%E4%BA%8C%E7%BB%B4%E7%A0%81/" class="article-nav-link">
         <strong class="article-nav-caption">下一篇</strong>
-        <div class="article-nav-title">Odoo开发——完整请假系统功能需求及源码</div>
+        <div class="article-nav-title">Java生成QRcode二维码</div>
       </a>
     
   </nav>
