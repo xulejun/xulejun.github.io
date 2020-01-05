@@ -63,6 +63,73 @@
 
     
     
+    <article id="post-三层架构，MVC，SSM框架详解" class="article article-type-post" itemscope
+  itemprop="blogPost" data-scroll-reveal>
+
+  <div class="article-inner">
+    
+    <header class="article-header">
+       
+<h2 itemprop="name">
+  <a class="article-title" href="/2020/01/05/%E4%B8%89%E5%B1%82%E6%9E%B6%E6%9E%84%EF%BC%8CMVC%EF%BC%8CSSM%E6%A1%86%E6%9E%B6%E8%AF%A6%E8%A7%A3/"
+    >三层架构，MVC，SSM框架详解</a
+  >
+</h2>
+  
+
+    </header>
+    
+
+    
+    <div class="article-meta">
+      <a href="/2020/01/05/%E4%B8%89%E5%B1%82%E6%9E%B6%E6%9E%84%EF%BC%8CMVC%EF%BC%8CSSM%E6%A1%86%E6%9E%B6%E8%AF%A6%E8%A7%A3/" class="article-date">
+  <time datetime="2020-01-05T11:46:01.209Z" itemprop="datePublished">2020-01-05</time>
+</a>
+      
+    </div>
+    
+
+    
+
+    <div class="article-entry" itemprop="articleBody">
+      
+
+
+      
+
+      
+      <p><strong><em>声明</em></strong>：<em>系统架构是指整个应用系统程序的结构[不是某一门语言特有的，是软件结构通用的]，经常提到的系统架构一般有两种，三层架构和MVC，这两种架构之间有区别，是不一样的概念，但是它们之间的共同点是为了降低系统模块之间的耦合度（降低耦合度可以简单理解为改动的时候不需要更改很多地方，多人参与项目可以分开写，各写个的部分，对接的时候是基于接口，内部互不影响）。</em></p>
+<h2 id="1-三层架构"><a href="#1-三层架构" class="headerlink" title="1.三层架构"></a>1.三层架构</h2><p>三层架构师指：视图层view，服务层service，持久层Dao，它们的功能是：<br><strong>1.view层</strong>：用来接收用户请求的代码，比如请求如何分发；<br><strong>2.service层</strong>：系统的业务逻辑主要写在这里，比如借书系统会有借书的业务；<br><strong>3.Dao层</strong>：直接操作数据库的代码，之所以分Dao层，主要是可能相同的sql语句可能使用在比较多的地方，改动的时候可以理解为只改动一处即可。<br>为了降低耦合度，在这里，使用面向抽象编程，也就是上层对下层的调用，直接通过接口来完成，下层对上层的真正服务提供者，是下层实现的接口实现类，实现类是可以更换的，这就实现了层间的解耦合。 </p>
+<h2 id="2-MVC"><a href="#2-MVC" class="headerlink" title="2.MVC"></a>2.MVC</h2><p>mvc就是Model模型，view视图，以及Controller控制器<br>model1 = JSP（JSP+Servlet）+JavaBean<br>model2 = JSP+JavaBean+Servlet<br><strong>1.View</strong>：视图，为用户提供使用界面，与用户进行交互。<br><strong>2.Model</strong>：模型承载数据，对用户提交请求进行计算的模块，分为两类：</p>
+<ul>
+<li>1.数据承载bean，</li>
+<li>2.业务承载bean，数据承载bean是指实体类专门承载业务数据的，比如Student，User，业务处理bean是指Service或者Dao对象，专门处理用户的请求的。<br><strong>3.Controller</strong>：控制器，用来将用户请求转发给相应的Model进行处理，并且根据Model的计算结果向用户提供相应的响应。 </li>
+</ul>
+<h2 id="3-MVC与三层架构的区别"><a href="#3-MVC与三层架构的区别" class="headerlink" title="3.MVC与三层架构的区别"></a>3.MVC与三层架构的区别</h2><p>MVC架构里面的Controller以及View层合并在一起就是三层架构的View层，而MVC的Model层就包含了三层架构的Service层以及Dao层。 </p>
+<h2 id="4-SSM与三层架构的联系"><a href="#4-SSM与三层架构的联系" class="headerlink" title="4.SSM与三层架构的联系"></a>4.SSM与三层架构的联系</h2><p><strong>1.Spring</strong>：是整个应用的大管家，整个应用中所有的bean的生命周期行为，都是由Spring来管理的，就是说整个应用中所有的对象的创建，初始化，销毁，以及对象之间关联的关系维护，都是由Spring来进行管理。<br><strong>2.SpringMVC</strong>:作为view的实现者，完成客户请求的接受功能,它的controller作为整个应用的控制器，完成用户请求的转发和对用户的响应。<br><strong>3.Mybatis</strong>:作为Dao的实现者，完成数据库的增伤改查等功能。<br><img src="https://img-blog.csdnimg.cn/20200105194410269.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80Mzg0Mjg1Mw==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
+
+      
+      <!-- 打赏 -->
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2020/01/05/%E4%B8%89%E5%B1%82%E6%9E%B6%E6%9E%84%EF%BC%8CMVC%EF%BC%8CSSM%E6%A1%86%E6%9E%B6%E8%AF%A6%E8%A7%A3/" data-id="ck50yadtu0000d0u46j8k1jgk"
+        class="article-share-link">分享</a>
+      
+    </footer>
+
+  </div>
+
+  
+
+  
+  
+  
+
+  
+
+</article>
+    
     <article id="post-Java中super和this的区别" class="article article-type-post" itemscope
   itemprop="blogPost" data-scroll-reveal>
 
@@ -662,66 +729,6 @@ this：调用所属类的构造函数</code></pre>
     </div>
     <footer class="article-footer">
       <a data-url="http://yoursite.com/2019/12/22/TCP%E7%9A%84%E4%B8%89%E6%AC%A1%E6%8F%A1%E6%89%8B%E4%B8%8E%E5%9B%9B%E6%AC%A1%E6%8C%A5%E6%89%8B%E7%90%86%E8%A7%A3%E5%8F%8A%E9%9D%A2%E8%AF%95%E9%A2%98/" data-id="ck4h3hfgs0002rgu42cib7ldt"
-        class="article-share-link">分享</a>
-      
-    </footer>
-
-  </div>
-
-  
-
-  
-  
-  
-
-  
-
-</article>
-    
-    <article id="post-浏览器访问百度的整个过程" class="article article-type-post" itemscope
-  itemprop="blogPost" data-scroll-reveal>
-
-  <div class="article-inner">
-    
-    <header class="article-header">
-       
-<h2 itemprop="name">
-  <a class="article-title" href="/2019/12/22/%E6%B5%8F%E8%A7%88%E5%99%A8%E8%AE%BF%E9%97%AE%E7%99%BE%E5%BA%A6%E7%9A%84%E6%95%B4%E4%B8%AA%E8%BF%87%E7%A8%8B/"
-    >浏览器访问百度的整个过程</a
-  >
-</h2>
-  
-
-    </header>
-    
-
-    
-    <div class="article-meta">
-      <a href="/2019/12/22/%E6%B5%8F%E8%A7%88%E5%99%A8%E8%AE%BF%E9%97%AE%E7%99%BE%E5%BA%A6%E7%9A%84%E6%95%B4%E4%B8%AA%E8%BF%87%E7%A8%8B/" class="article-date">
-  <time datetime="2019-12-22T14:14:39.151Z" itemprop="datePublished">2019-12-22</time>
-</a>
-      
-    </div>
-    
-
-    
-
-    <div class="article-entry" itemprop="articleBody">
-      
-
-
-      
-
-      
-      <h2 id="浏览器访问百度的整个过程"><a href="#浏览器访问百度的整个过程" class="headerlink" title="浏览器访问百度的整个过程"></a>浏览器访问百度的整个过程</h2><p><strong>1.</strong>主要先要解析出百度域名<a href="http://www.baidu.com所对应的ip地址****（一个域名只对应一个IP地址，一个ip地址可对应多个域名）" target="_blank" rel="noopener">www.baidu.com所对应的ip地址****（一个域名只对应一个IP地址，一个ip地址可对应多个域名）</a><br>    1.先知道默认网关的mac地址（使用arp获取默认网关的mac地址）<br>    2.组织数据发送给默认网关(ip还是dns服务器的ip,但是mac地址是默认网关的mac地址)<br>    3.默认网关拥有转发数据的能力,把数据转发给路由器<br>    4.路由器根据自已的路由协议,来选择一个合适的较快的路径转发数据给目的网关<br>    5.目的网关(dns服务器所在的网关),把数据转发给dns服务器<br>    6.dns服务器查询解析出baidu.com对应的ip地址,并把它原路返回给请求这个域名的client</p>
-<p><strong>2.得到了baidu.com对应的ip地址后,会发送tcp的3次握手,进行连接</strong><br><strong>3.使用http协议发送请求数据给web服务器</strong><br><strong>4.web服务器收到数据请求之后,通过查询自已的服务器得到相应的结果,原路返回给浏览器<br>5.浏览器接收到数据后通过浏览器自已的渲染功能来显示这个网页</strong><br><strong>6.浏览器关闭tcp连接,即4次挥手</strong><img src="https://img-blog.csdnimg.cn/20191215111536294.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80Mzg0Mjg1Mw==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br>完成整个访问过程</p>
-
-      
-      <!-- 打赏 -->
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/12/22/%E6%B5%8F%E8%A7%88%E5%99%A8%E8%AE%BF%E9%97%AE%E7%99%BE%E5%BA%A6%E7%9A%84%E6%95%B4%E4%B8%AA%E8%BF%87%E7%A8%8B/" data-id="ck4h3hfgv0004rgu427os6pkb"
         class="article-share-link">分享</a>
       
     </footer>

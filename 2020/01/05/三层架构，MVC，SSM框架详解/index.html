@@ -6,7 +6,7 @@
     
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
   <title>
-    Java中super和this的区别 |  Welcome to XuLeJun&#39;s blog
+    三层架构，MVC，SSM框架详解 |  Welcome to XuLeJun&#39;s blog
   </title>
   
   <link rel="shortcut icon" href="/favicon.ico" />
@@ -31,7 +31,7 @@
   <div id="app">
     <main class="content">
       <section class="outer">
-  <article id="post-Java中super和this的区别" class="article article-type-post" itemscope
+  <article id="post-三层架构，MVC，SSM框架详解" class="article article-type-post" itemscope
   itemprop="blogPost" data-scroll-reveal>
 
   <div class="article-inner">
@@ -39,7 +39,7 @@
     <header class="article-header">
        
 <h1 class="article-title sea-center" style="border-left:0" itemprop="name">
-  Java中super和this的区别
+  三层架构，MVC，SSM框架详解
 </h1>
   
 
@@ -48,8 +48,8 @@
 
     
     <div class="article-meta">
-      <a href="/2020/01/02/Java%E4%B8%ADsuper%E5%92%8Cthis%E7%9A%84%E5%8C%BA%E5%88%AB/" class="article-date">
-  <time datetime="2020-01-02T02:50:07.536Z" itemprop="datePublished">2020-01-02</time>
+      <a href="/2020/01/05/%E4%B8%89%E5%B1%82%E6%9E%B6%E6%9E%84%EF%BC%8CMVC%EF%BC%8CSSM%E6%A1%86%E6%9E%B6%E8%AF%A6%E8%A7%A3/" class="article-date">
+  <time datetime="2020-01-05T11:46:01.209Z" itemprop="datePublished">2020-01-05</time>
 </a>
       
     </div>
@@ -72,27 +72,16 @@
       
 
       
-      <h2 id="本质区别："><a href="#本质区别：" class="headerlink" title="本质区别："></a>本质区别：</h2><p>1、super（参数）：调用基类中的另一个构造函数（应该为构造函数的第一条语句）</p>
-<p>2、this（参数）：调用本类中另一种形式的构造函数（应该为构造函数的第一条语句）</p>
-<p>3、super：它引用当前对象的直接父类中的成员（用来访问直接父类中被隐藏的父类中成员数据或函数，基类与派生类中有相同成员定义时：super.变量名，super.成员函数数据名（实参））</p>
-<p>4、this：它代表当前对象名（在程序中易产生二义性之处，应使用this来指明当前对象；如果函数的形参与类中的成员数据同名，这时需用this来指明成员变量名）</p>
-<p>5、调用super()必须写在子类构造方法的第一行，否则编译不通过。每个子类构造方法的第一条语句，都是隐含地调用super()，如果父类没有这种形式的构造函数，那么在遍历的时候就会报错</p>
-<p>6、super()和this()类似，区别是，super()从子类中调用父类的构造方法，this()在同一类内调用其它方法</p>
-<p>7、super()和this()均需放在构造方法内第一行</p>
-<p>8、尽管可以用this调用一个构造器，但却不能调用两个</p>
-<p>9、this和super不能同时出现在一个构造函数里面，因为this必然会调用其它的构造函数，其它的构造函数必然也会有super语句的存在，所以在同一个构造函数里面有相同的语句，就失去了语句的意义，编译器也不会通过</p>
-<p>10、this()和super()都指的是对象，所以，均不可以在static环境中使用。包括static变量、static方法、static语句块</p>
-<p>11、从本质上讲，this是一个指向本对象的指针，然而super是一个Java关键字</p>
-<p> (1.)代表的事物不同</p>
-<pre><code>super代表的是父类空间的引用
+      <p><strong><em>声明</em></strong>：<em>系统架构是指整个应用系统程序的结构[不是某一门语言特有的，是软件结构通用的]，经常提到的系统架构一般有两种，三层架构和MVC，这两种架构之间有区别，是不一样的概念，但是它们之间的共同点是为了降低系统模块之间的耦合度（降低耦合度可以简单理解为改动的时候不需要更改很多地方，多人参与项目可以分开写，各写个的部分，对接的时候是基于接口，内部互不影响）。</em></p>
+<h2 id="1-三层架构"><a href="#1-三层架构" class="headerlink" title="1.三层架构"></a>1.三层架构</h2><p>三层架构师指：视图层view，服务层service，持久层Dao，它们的功能是：<br><strong>1.view层</strong>：用来接收用户请求的代码，比如请求如何分发；<br><strong>2.service层</strong>：系统的业务逻辑主要写在这里，比如借书系统会有借书的业务；<br><strong>3.Dao层</strong>：直接操作数据库的代码，之所以分Dao层，主要是可能相同的sql语句可能使用在比较多的地方，改动的时候可以理解为只改动一处即可。<br>为了降低耦合度，在这里，使用面向抽象编程，也就是上层对下层的调用，直接通过接口来完成，下层对上层的真正服务提供者，是下层实现的接口实现类，实现类是可以更换的，这就实现了层间的解耦合。 </p>
+<h2 id="2-MVC"><a href="#2-MVC" class="headerlink" title="2.MVC"></a>2.MVC</h2><p>mvc就是Model模型，view视图，以及Controller控制器<br>model1 = JSP（JSP+Servlet）+JavaBean<br>model2 = JSP+JavaBean+Servlet<br><strong>1.View</strong>：视图，为用户提供使用界面，与用户进行交互。<br><strong>2.Model</strong>：模型承载数据，对用户提交请求进行计算的模块，分为两类：</p>
+<ul>
+<li>1.数据承载bean，</li>
+<li>2.业务承载bean，数据承载bean是指实体类专门承载业务数据的，比如Student，User，业务处理bean是指Service或者Dao对象，专门处理用户的请求的。<br><strong>3.Controller</strong>：控制器，用来将用户请求转发给相应的Model进行处理，并且根据Model的计算结果向用户提供相应的响应。 </li>
+</ul>
+<h2 id="3-MVC与三层架构的区别"><a href="#3-MVC与三层架构的区别" class="headerlink" title="3.MVC与三层架构的区别"></a>3.MVC与三层架构的区别</h2><p>MVC架构里面的Controller以及View层合并在一起就是三层架构的View层，而MVC的Model层就包含了三层架构的Service层以及Dao层。 </p>
+<h2 id="4-SSM与三层架构的联系"><a href="#4-SSM与三层架构的联系" class="headerlink" title="4.SSM与三层架构的联系"></a>4.SSM与三层架构的联系</h2><p><strong>1.Spring</strong>：是整个应用的大管家，整个应用中所有的bean的生命周期行为，都是由Spring来管理的，就是说整个应用中所有的对象的创建，初始化，销毁，以及对象之间关联的关系维护，都是由Spring来进行管理。<br><strong>2.SpringMVC</strong>:作为view的实现者，完成客户请求的接受功能,它的controller作为整个应用的控制器，完成用户请求的转发和对用户的响应。<br><strong>3.Mybatis</strong>:作为Dao的实现者，完成数据库的增伤改查等功能。<br><img src="https://img-blog.csdnimg.cn/20200105194410269.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80Mzg0Mjg1Mw==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
 
-this代表的是所属函数的调用者对象</code></pre><p>(2.)使用前提不同</p>
-<pre><code>super必须要有继承关系才能使用
-
-this不需要继承关系也能使用</code></pre><p>(3.)调用的构造函数不同</p>
-<pre><code>super：调用父类的构造函数
-
-this：调用所属类的构造函数</code></pre>
       
       <!-- 打赏 -->
       
@@ -102,7 +91,7 @@ this：调用所属类的构造函数</code></pre>
         
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2020/01/02/Java%E4%B8%ADsuper%E5%92%8Cthis%E7%9A%84%E5%8C%BA%E5%88%AB/" data-id="ck4w4ue3n0000f4u43zqjcxc3"
+      <a data-url="http://yoursite.com/2020/01/05/%E4%B8%89%E5%B1%82%E6%9E%B6%E6%9E%84%EF%BC%8CMVC%EF%BC%8CSSM%E6%A1%86%E6%9E%B6%E8%AF%A6%E8%A7%A3/" data-id="ck50yadtu0000d0u46j8k1jgk"
         class="article-share-link">分享</a>
       
     </footer>
@@ -113,19 +102,10 @@ this：调用所属类的构造函数</code></pre>
   
   <nav class="article-nav">
     
-      <a href="/2020/01/05/%E4%B8%89%E5%B1%82%E6%9E%B6%E6%9E%84%EF%BC%8CMVC%EF%BC%8CSSM%E6%A1%86%E6%9E%B6%E8%AF%A6%E8%A7%A3/" class="article-nav-link">
-        <strong class="article-nav-caption">上一篇</strong>
-        <div class="article-nav-title">
-          
-            三层架构，MVC，SSM框架详解
-          
-        </div>
-      </a>
     
-    
-      <a href="/2020/01/02/Java%E6%8A%BD%E8%B1%A1%E7%B1%BB%E5%92%8C%E6%8E%A5%E5%8F%A3%E7%9A%84%E5%8C%BA%E5%88%AB/" class="article-nav-link">
+      <a href="/2020/01/02/Java%E4%B8%ADsuper%E5%92%8Cthis%E7%9A%84%E5%8C%BA%E5%88%AB/" class="article-nav-link">
         <strong class="article-nav-caption">下一篇</strong>
-        <div class="article-nav-title">Java抽象类和接口的区别</div>
+        <div class="article-nav-title">Java中super和this的区别</div>
       </a>
     
   </nav>
